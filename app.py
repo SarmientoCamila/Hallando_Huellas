@@ -1,5 +1,9 @@
-from flask import Flask, render_template, request, redirect, Response, session
+from flask import Flask, render_template, request, redirect, Response, session, flash
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, EmailField, TelField, SubmitField
+from wtforms.validators import DataRequired, Length
 from flask_mysqldb import MySQL
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.config.from_mapping(
@@ -13,16 +17,13 @@ app.config["MYSQL_DB"] = "hallando_huellas"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 mysql = MySQL(app)
 
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-# Creación de formulario
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, EmailField, TelField, SubmitField
-from wtforms.validators import DataRequired, Length
-
+# Creación de formulario de registro
 class RegisterUserForm(FlaskForm):
     # Campo de formulario = Clase Tipo Input(Valor de label, validaciones)
     # DataRequired hace que el campo sea necesario completar para poder enviar el formulario (campo obligatorio)
@@ -32,7 +33,7 @@ class RegisterUserForm(FlaskForm):
     phone = TelField("Teléfono: ", validators=[DataRequired(), Length(min=7, max=15)])
     email = EmailField("Correo electrónico: ", validators=[DataRequired()])
     # Probablemente ponga otra vez la contraseña para confirmar. Para eso se puede usar el validator EqualTo
-    password = PasswordField(
+    password_hash = PasswordField(
         "Contraseña: ", validators=[DataRequired(), Length(min=8, max=20)]
     )
     submit = SubmitField("Registrarse")
@@ -50,27 +51,93 @@ def register():
         address = form.address.data
         phone = form.phone.data
         email = form.email.data
-        password = form.password.data
-        return f"Nombre: {name}. Apellido: {surname}. Domicilio: {address}. Teléfono: {phone}. Correo: {email}. Contraseña: {password}"
+        # Encriptar contrasela con generate_password_hash(traer dato del form)
+        password_hash = generate_password_hash(form.password_hash.data)
 
-    # FORMA DE HACERLO SIN WTFORMS
-    # if request.method == "POST":
-    #     # si se envió el formulario se capturen los datos
-    #     # y se almacenen en las variables correspondientes
-    #     name = request.form["name"]
-    #     surname = request.form["surname"]
-    #     address = request.form["address"]
-    #     phone = request.form["phone"]
-    #     email = request.form["email"]
-    #     password = request.form["password"]
-    #     if (
-    #         len(password) <= 20
-    #         and len(password) >= 8
-    #         and phone.isdecimal()
-    #         and len(phone) > 6
-    #     ):
-    #         return f"Nombre: {name}. Apellido: {surname}. Domicilio: {address}. Teléfono: {phone}. Correo: {email}. Contraseña: {password}"
-    #     else:
-    #         error = "El telefono debe ser númerico y mayor a 6 caracteres. Contraseña debe tener de 8 a 20 caracteres."
-    #         return render_template("auth/register.html", form=form, error=error)
+        try:
+            # Se insertan los datos en la base de datos.
+            # Un cursor es un objeto. Ejecuta comandos SQL
+            # y obtiene los resultados de las consultas.
+            cur = mysql.connection.cursor()
+
+            # execute() ejecuta la consulta
+            cur.execute(
+                "INSERT INTO users (name, surname, address, phone, email, password_hash) VALUES (%s, %s, %s, %s, %s, %s)",
+                (name, surname, address, phone, email, password_hash),
+            )
+
+            # commit() confirma los cambios en la base de datos
+            # cur.close() cierra el cursor luego de ejecutar la consulta
+            mysql.connection.commit()
+            cur.close()
+
+            flash("Usuario registrado con éxito", "success")
+            return redirect("/")
+        except Exception as e:
+            flash(f"Error al registrar usuario: {str(e)}", "error")
+
     return render_template("auth/register.html", form=form)
+
+
+# Creación de formulario de inicio de sesión
+class LoginForm(FlaskForm):
+    email = EmailField("Correo electrónico: ", validators=[DataRequired()])
+    password_hash = PasswordField("Contraseña: ", validators=[DataRequired()])
+    submit = SubmitField("Iniciar sesión")
+    # Se puede poner un BooleanField para recordar contraseña,
+    # en ese caso debemos importarlo arriba como las otras clases de inputs.
+
+
+# Iniciar sesión
+@app.route("/auth/login", methods=["GET", "POST"])
+def login():
+    # Lo voy a hacer de cero de nuevo
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password_hash = form.password_hash.data
+        try:
+            cur = mysql.connection.cursor()
+            cur.execute(
+                "SELECT * FROM users WHERE email=%s",
+                (email,),
+            )
+            account = cur.fetchone()
+            if account and check_password_hash(account["password_hash"], password_hash):
+                session["logged_in"] = True
+                session["id_user"] = account["id_user"]
+                flash("Has iniciado sesión con éxito", "success")
+                return render_template("/")
+            else:
+                flash("Correo electrónico o contraseña incorrectos", "error")
+        except Exception as e:
+            flash(f"Error al iniciar sesión: {str(e)}", "error")
+            return redirect("/auth/login")
+        finally:
+            cur.close()
+    return render_template("auth/login.html", form=form)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+# FORMA DE HACERLO SIN WTFORMS
+# if request.method == "POST":
+# si se envió el formulario se capturen los datos, se almacenen en las variables correspondientes
+#     name = request.form["name"]
+#     surname = request.form["surname"]
+#     address = request.form["address"]
+#     phone = request.form["phone"]
+#     email = request.form["email"]
+#     password_hash = request.form["password_hash"]
+#     if (
+#         len(password_hash) <= 20
+#         and len(password_hash) >= 8
+#         and phone.isdecimal()
+#         and len(phone) > 6
+#     ):
+#         return f"Nombre: {name}. Apellido: {surname}. Domicilio: {address}. Teléfono: {phone}. Correo: {email}. Contraseña: {password_hash}"
+#     else:
+#         error = "El telefono debe ser númerico y mayor a 6 caracteres. Contraseña debe tener de 8 a 20 caracteres."
+#         return render_template("auth/register.html", form=form, error=error)
