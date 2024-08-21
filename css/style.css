@@ -14,7 +14,6 @@
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: .2s linear;
 }
 
@@ -50,7 +49,7 @@ section{
     text-align: center;
     color:#000000;
     text-transform: uppercase;
-    padding-bottom: 3.5rem;
+    padding: 3.5rem;
     font-size: 4rem;
 }
 
@@ -78,7 +77,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:1.5rem 7%;
+    padding:1.5rem 4%;
     border-bottom: var(--border);
     position: fixed;
     top:0; left: 0; right: 0;
@@ -88,12 +87,12 @@ section{
     font-family: "Leckerli One", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 60px;
+    font-size: 50px;
     color: #0A5D91;
 }
 
 .header .logo img{
-    height: 6rem;
+    height: 5rem;
 }
 
 .header .navbar a{
@@ -319,39 +318,52 @@ section{
     font-size: 1.5rem;
 }
 
-.review .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap:1.5rem;
+.review .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.review .box-container .box{
-    border:var(--border);
+.review .box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    flex: 1 1 30%; 
+    max-width: 32%;
     text-align: center;
-    padding:3rem 2rem;
-}
-.review .box-container .box .quote{
-    height: 4rem;
-}
-.review .box-container .box p{
-    font-size: 1.5rem;
-    line-height: 1.8;
-    color:#ccc;
-    padding:2rem 0;
 }
 
-.review .box-container .box .user{
-    height: 7rem;
-    width: 7rem;
+.review .box img.user {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
+    margin-top: 15px;
 }
 
-.review .box-container .box h3{
-    padding:1rem 0;
-    font-size: 2rem;
-    color:#000000;
+.review .box img.quote {
+    width: 30px;
 }
+
+.review .box p {
+    margin: 10px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.review .box h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.review .box .stars {
+    margin-top: 5px;
+}
+
 
 .review .box-container .box .stars i{
     font-size: 1.5rem;
@@ -463,7 +475,7 @@ section{
 }
 
 .footer{
-    background:#1b4a70de;
+    background:#114F7E;
     text-align: center;
 }
 
@@ -523,44 +535,76 @@ section{
 
 
 
-
-
-
-
-
 /* media queries  */
-@media (max-width:991px){
+
+
+@media (max-width:1084px){
 
     html{
-        font-size: 55%;
+        font-size: 45%;
     }
 
     .header{
-        padding:1.5rem 2rem;
+        padding:1rem 1.5rem;
     }
 
     section{
-        padding:2rem;
+        padding:1rem;
+    }
+    .review .box {
+        flex: 1 1 50%;
+        max-width: 100%;
+    }
+
+}
+@media (max-width:991px){
+
+    html{
+        font-size: 45%;
+    }
+
+    .header{
+        padding:1rem 1.5rem;
+    }
+
+    section{
+        padding:1rem;
+    }
+    .review .box {
+        flex: 1 1 50%;
+        max-width: 100%;
     }
 
 }
 
-@media (max-width:768px){
+
+@media (max-width:877px){
 
     #menu-btn{
         display: inline-block;
     }
+    .leckerli-one-regular {
+        font-size: 40px; 
+        justify-content: center;
+    }
+    .header {
+        padding: 1rem 6em;
+    }
+    .header .navbar a:hover{
+        color: #fff;
+    }
+
 
     .header .navbar{
         position: absolute;
         top:100%; right: -100%;
-        background: #04395a;
-        width: 30rem;
-        height: calc(100vh - 9.5rem);
+        background: #114F7E;
+        width: 20rem;
+        height: 24rem;
     }
 
     .header .navbar.active{
-        right:0;
+        right:5px;
     }
 
     .header .navbar a{
@@ -571,31 +615,169 @@ section{
         font-size: 2rem;
     }
 
-    .header .search-form{
-        width: 90%;
-        right: 2rem;
-    }
+ 
+    .home {
 
-    .home{
-        background-position: left;
-        justify-content: center;
-        text-align: center;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      
+        background-size: cover;
+        background-position: center;
     }
 
     .home .content h3{
-        font-size: 4.5rem;
+        font-size: 2rem;
     }
 
     .home .content p{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
 }
 
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+    .leckerli-one-regular {
+        font-size: 40px; 
+        justify-content: center;
+    }
+    .header {
+        padding: 1rem 6em;
+      }
+    
+
+
+    .header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: #114F7E;
+        width: 20rem;
+        height: 24rem;
+    }
+
+    .header .navbar.active{
+        right:5px;
+    }
+
+    .header .navbar a{
+        color:var(--black);
+        display: block;
+        margin:1.5rem;
+        padding:.5rem;
+        font-size: 2rem;
+    }
+
+ 
+    .home {
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+       
+        background-size: cover;
+        background-position: center;
+    }
+
+    .home .content h3{
+        font-size: 2rem;
+    }
+
+    .home .content p{
+        font-size: 1.3rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .header .logo img {
+        display: none; 
+    }
+
+    .leckerli-one-regular {
+        font-size: 30px; 
+    }
+
+    .header .icons div {
+        font-size: 2rem; 
+    }
+
+    #menu-btn {
+        display: block; 
+    }
+
+ 
+
+    .home .content h3{
+        font-size: 2rem;
+    }
+
+    .home .content p{
+        font-size: 1rem;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    .header .logo img {
+        display: none; 
+    }
+
+    .leckerli-one-regular {
+        font-size: 30px; 
+    }
+
+    .header .icons div {
+        font-size: 2rem; 
+    }
+
+    #menu-btn {
+        display: block; 
+    }
+
+    .home .content h3{
+        font-size: 1em;
+    }
+
+    .home .content p{
+        font-size: .2em;
+    }
+}
 @media (max-width:450px){
 
     html{
         font-size: 50%;
     }
 
+}
+@media (max-width: 371px) {
+    .header .logo img {
+        display: none; 
+    }
+
+    .leckerli-one-regular {
+        font-size: 30px; 
+    }
+
+    .header .icons div {
+        font-size: 2rem; 
+    }
+
+    #menu-btn {
+        display: block; 
+    }
+
+    .home .content h3{
+        font-size: 1em;
+    }
+
+    .home .content p{
+        font-size: .2em;
+    }
 }
