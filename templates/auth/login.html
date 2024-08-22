@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <style>
+        .flash {
+          padding: 10px;
+          margin-bottom: 20px;
+          color: #fff;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+        .flash .success {
+          background-color: #4CAF50;
+        }
+        .flash .error {
+          background-color: #f44336;
+        }
+      </style>
+  
+</head>
+<body>
+    <h1>Inicio de sesión</h1>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <div class="flash">
+                {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }} <!-- NO TOCAR. Seguridad del formulario -->
+        {{ form.email.label }}{{ form.email }}
+        <br>
+        <br>
+        {{ form.password.label }}{{ form.password }}
+        <br>
+        <br>
+        {{ form.submit.label }}{{ form.submit }}
+    </form>
+</body>
+</html>
