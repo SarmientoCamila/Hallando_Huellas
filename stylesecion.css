@@ -1,84 +1,76 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #E6F7FF; /* Fondo azul claro */
-    margin: 0;
-    padding: 0;
+/* Estilo del formulario de login */
+#login-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 50px;
+    background: #f5f5f5;
 }
 
-/* Estilo del contenedor del formulario */
-.login-container {
-    width: 400px;
-    padding: 30px;
-    background-color: #FFFFFF; /* Fondo blanco */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+.login-box {
+    width: 300px;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
-/* Estilo de los títulos */
-.login-container h2 {
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #333;
     text-align: center;
-    color: #1E90FF; /* Azul Dodger */
-    margin-bottom: 25px;
 }
 
-/* Estilo de los campos de entrada */
-.login-container input[type="text"],
-.login-container input[type="password"] {
+.login-box .inputBox {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.login-box .inputBox input {
     width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    border: 1px solid #1C86EE; /* Borde azul fuerte */
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .inputBox input:focus ~ label,
+.login-box .inputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #ff7a18;
+    font-size: 12px;
+}
+
+.login-box input[type="submit"] {
+    background: #1E90FF; /* Azul Dodger */
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+    transition: background 0.3s;
 }
 
-/* Estilo del botón de login */
-.login-container button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #4682B4; /* Azul acero */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 20px;
+.login-box input[type="submit"]:hover {
+    background: #1C86EE; /* Azul Dodger oscuro al pasar el mouse */
 }
 
-.login-container button[type="submit"]:hover {
-    background-color: #1C86EE; /* Azul Dodger oscuro al pasar el mouse */
-}
-
-/* Estilo de los enlaces */
-.login-container a {
-    color: #1E90FF; /* Azul Dodger */
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.login-container a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo adicional para bordes y detalles */
-.login-container {
-    border: 2px solid #87CEFA; /* Azul cielo */
-}
-
-.login-container input[type="text"]:focus,
-.login-container input[type="password"]:focus {
-    border-color: #4682B4; /* Azul acero al enfocar */
-    outline: none;
-}
-
-.login-container button[type="submit"]:active {
-    background-color: #5F9EA0; /* Azul cadete al hacer clic */
-}
