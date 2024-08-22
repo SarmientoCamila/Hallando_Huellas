@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, Response, session, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, EmailField, TelField, SubmitField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, Email, EqualTo
 from flask_mysqldb import MySQL
-from werkzeug.security import generate_password_hash, check_password_hash
+from bcrypt import hashpw, gensalt, checkpw
+from email_validator import validate_email
+
 
 app = Flask(__name__)
 app.config.from_mapping(
@@ -26,15 +28,18 @@ def home():
 # Creación de formulario de registro
 class RegisterUserForm(FlaskForm):
     # Campo de formulario = Clase Tipo Input(Valor de label, validaciones)
-    # DataRequired hace que el campo sea necesario completar para poder enviar el formulario (campo obligatorio)
+    # DataRequired hace que el campo sea obligatorio
     name = StringField("Nombre: ", validators=[DataRequired()])
     surname = StringField("Apellido: ", validators=[DataRequired()])
     address = StringField("Domicilio: ", validators=[DataRequired()])
     phone = TelField("Teléfono: ", validators=[DataRequired(), Length(min=7, max=15)])
     email = EmailField("Correo electrónico: ", validators=[DataRequired()])
-    # Probablemente ponga otra vez la contraseña para confirmar. Para eso se puede usar el validator EqualTo
-    password_hash = PasswordField(
-        "Contraseña: ", validators=[DataRequired(), Length(min=8, max=20)]
+    password = PasswordField(
+        "Contraseña: ",
+        validators=[DataRequired(), EqualTo("confirm_password"), Length(min=8, max=20)],
+    )
+    confirm_password = PasswordField(
+        "Confirmar contraseña: ", validators=[DataRequired()]
     )
     submit = SubmitField("Registrarse")
 
@@ -51,9 +56,17 @@ def register():
         address = form.address.data
         phone = form.phone.data
         email = form.email.data
-        # Encriptar contrasela con generate_password_hash(traer dato del form)
-        password_hash = generate_password_hash(form.password_hash.data)
+        password = form.password.data
 
+        # Validar email
+        try:
+            validate_email(email)
+        except Exception as e:
+            flash(f"Error al validar: {str(e)}", "error")
+            return render_template("/auth/register.html", form=form)
+
+        # Encriptar contraseña (Hashear)
+        password_hash = hashpw(password.encode("utf-8"), gensalt())
         try:
             # Se insertan los datos en la base de datos.
             # Un cursor es un objeto. Ejecuta comandos SQL
@@ -71,7 +84,6 @@ def register():
             mysql.connection.commit()
             cur.close()
 
-            flash("Usuario registrado con éxito", "success")
             return redirect("/")
         except Exception as e:
             flash(f"Error al registrar usuario: {str(e)}", "error")
@@ -81,11 +93,10 @@ def register():
 
 # Creación de formulario de inicio de sesión
 class LoginForm(FlaskForm):
-    email = EmailField("Correo electrónico: ", validators=[DataRequired()])
-    password_hash = PasswordField("Contraseña: ", validators=[DataRequired()])
+    email = EmailField("Correo electrónico: ", validators=[DataRequired(), Email()])
+    password = PasswordField("Contraseña: ", validators=[DataRequired()])
     submit = SubmitField("Iniciar sesión")
-    # Se puede poner un BooleanField para recordar contraseña,
-    # en ese caso debemos importarlo arriba como las otras clases de inputs.
+    # Se puede poner un BooleanField para recordar contraseña, habría que importarlo.
 
 
 # Iniciar sesión
@@ -95,26 +106,25 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         email = form.email.data
-        password_hash = form.password_hash.data
-        try:
-            cur = mysql.connection.cursor()
-            cur.execute(
-                "SELECT * FROM users WHERE email=%s",
-                (email,),
-            )
-            account = cur.fetchone()
-            if account and check_password_hash(account["password_hash"], password_hash):
+        password = form.password.data
+
+        # Buscar usuario en base de datos
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE email = %s", (email,))
+        user = cur.fetchone()
+        cur.close()
+        if user:
+            # Validar contraseña
+            password_hash = user['password_hash']
+            if isinstance(password_hash, bytes) and checkpw(password.encode('utf-8'), password_hash):
+                # Se inicia sesión
                 session["logged_in"] = True
-                session["id_user"] = account["id_user"]
-                flash("Has iniciado sesión con éxito", "success")
-                return render_template("/")
+                session["id_user"] = user['id_user']
+                return redirect("/")
             else:
-                flash("Correo electrónico o contraseña incorrectos", "error")
-        except Exception as e:
-            flash(f"Error al iniciar sesión: {str(e)}", "error")
-            return redirect("/auth/login")
-        finally:
-            cur.close()
+                flash("Contraseña incorrecta", "error")
+        else:
+            flash("Correo electrónico no registrado", "error")
     return render_template("auth/login.html", form=form)
 
 
