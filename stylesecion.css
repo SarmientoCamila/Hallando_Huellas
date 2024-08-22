@@ -12,53 +12,56 @@ body {
 
 /* Estilo del contenedor del formulario */
 .login-container {
-    width: 300px;
-    padding: 20px;
+    width: 400px;
+    padding: 30px;
     background-color: #ffffff; /* Fondo blanco */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 /* Estilo de los títulos */
 .login-container h2 {
     text-align: center;
-    color: #007BFF; /* Azul oscuro */
-    margin-bottom: 20px;
+    color: #1E90FF; /* Azul */
+    margin-bottom: 25px;
 }
 
 /* Estilo de los campos de entrada */
 .login-container input[type="text"],
 .login-container input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #007BFF; /* Borde azul */
-    border-radius: 4px;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #1E90FF; /* Borde azul */
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 /* Estilo del botón de login */
 .login-container button[type="submit"] {
     width: 100%;
-    padding: 10px;
-    background-color: #007BFF; /* Azul */
+    padding: 12px;
+    background-color: #1E90FF; /* Azul */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 .login-container button[type="submit"]:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    background-color: #1C86EE; /* Azul más oscuro al pasar el mouse */
 }
 
 /* Estilo de los enlaces */
 .login-container a {
-    color: #007BFF; /* Azul */
+    color: #1E90FF; /* Azul */
     text-decoration: none;
     display: block;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .login-container a:hover {
