@@ -102,7 +102,6 @@ class LoginForm(FlaskForm):
 # Iniciar sesión
 @app.route("/auth/login", methods=["GET", "POST"])
 def login():
-    # Lo voy a hacer de cero de nuevo
     form = LoginForm()
     if form.validate_on_submit():
         email = form.email.data
