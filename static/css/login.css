@@ -1,16 +1,22 @@
-@import url("style.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
-/* Estilo del formulario de login */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
 #login-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  height: 100vh;
   background: #f5f5f5;
 }
 
 .login-box {
-  width: 300px;
+  width: 350px;
   padding: 40px;
   background: #fff;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
@@ -61,7 +67,7 @@
 }
 
 .login-box input[type="submit"] {
-  background: #1e90ff; /* Azul Dodger */
+  background: #1e90ff;
   border: none;
   outline: none;
   color: #fff;
@@ -73,7 +79,7 @@
 }
 
 .login-box input[type="submit"]:hover {
-  background: #1c86ee; /* Azul Dodger oscuro al pasar el mouse */
+  background: #1c86ee;
 }
 
 .flash {
@@ -83,9 +89,9 @@
   border-radius: 5px;
   font-weight: bold;
 }
-.flash .success {
+.flash.success {
   background-color: #4caf50;
 }
-.flash .error {
+.flash.error {
   background-color: #f44336;
 }
