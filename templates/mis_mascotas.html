@@ -1,0 +1,20 @@
+<!-- mis_mascotas.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div id="mis-mascotas-section">
+  <h2>Mis Mascotas</h2>
+  <div class="mascotas-container">
+    {% for mascota in mascotas %}
+    <div class="mascota-card">
+      <h3>{{ mascota.nombre }}</h3>
+      <p>Edad: {{ mascota.edad }}</p>
+      <p>Raza: {{ mascota.raza }}</p>
+      <p>Descripción: {{ mascota.descripcion }}</p>
+    </div>
+    {% else %}
+    <p>No tienes mascotas registradas.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
