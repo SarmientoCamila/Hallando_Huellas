@@ -138,6 +138,22 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
+@app.route("/mis-mascotas")
+def mis_mascotas():
+    # Verificar si el usuario está autenticado
+    if 'user_id' not in session:
+        flash("Por favor, inicia sesión primero", "error")
+        return redirect("/auth/login")
+
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM mascotas WHERE user_id = %s", [session['user_id']])
+    mascotas = cur.fetchall()
+    cur.close()
+
+    return render_template("mis_mascotas.html", mascotas=mascotas)
+
+
+
 # FORMA DE HACERLO SIN WTFORMS
 # if request.method == "POST":
 # si se envió el formulario se capturen los datos, se almacenen en las variables correspondientes
