@@ -1,0 +1,29 @@
+#mis-mascotas-section {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.mascotas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.mascota-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.mascota-card h3 {
+  color: #333;
+}
+
+.mascota-card p {
+  color: #666;
+}
