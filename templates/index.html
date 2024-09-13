@@ -27,20 +27,51 @@
         <img src="/static/images/logo.png" alt="">
              Hallando Huellas
     </a>
+    
 
     <nav class="navbar">
-        <a href="#about">Nosotros</a>
-        <a href="#faq">Preguntas Frecuentes</a>
-        <a href="#refugios">Refugios Amigos</a>
-        <a href="#noticias">Noticias</a>
-        <a href="auth/login">Ingresar</a>
+        <ul class="nav_list">
+            <li>
+                <a href="#about" >Nosotros</a>
+            </li>
+            <li>
+                <a href="#faq">Preguntas Frecuentes</a>
+            </li>
+            <li>
+                <a href="#noticias">Noticias</a>
+            </li>
+            <li>
+                <a href="auth/login">Ingresar</a>
+            </li>
+            <li>
+                <a href="">Perfil</a>
+                <ul>
+                    <li><a href="">Ver perfil</a></li>
+                    
+                    <li><a href="{{ url_for('mostrar_mascotas') }}">Mi mascota</a></li>
+
+                    
+                    <li>
+                        <a href="">Administrar cuenta</a>
+                    </li>
+
+                    <li>
+                        <a href="">Cerrar sesión</a>
+                    </li>
+
+                </ul>
+                
+            </li>
+    
+        </ul>
+        
        
     </nav>
 
     <div class="icons">
-        <div><i class="fa-solid fa-right-to-bracket"></i></div>    
+        <div><i class="fa-solid fa-right-to-bracket"style= "display: none"></i></div>    
         <div class="fas fa-bars" id="menu-btn"></div>
-        <div><i class="fas fa-user" id="login-btn"></i>
+        <div><i class="fas fa-user" id="login-btn" ></i></div>
     </div>
 
 
@@ -69,17 +100,18 @@
             <img src="/static/images/about-img.png" alt="">
         </div>
 
-        <div class="content">
-            <h3>Nuestra historia</h3>
+        <div class="content" style="text-align: center;">
+            <h3>¿Qué es Hallando Huellas?</h3>
             <p style="color: black; font-size: 13px; text-align: center;">
                 Hallando Huellas es una aplicación web diseñada para facilitar la reunificación de mascotas perdidas con sus dueños. <br>
                 Utiliza tecnología de geolocalización y códigos QR personalizados que se colocan en el collar de la mascota. <br>
                 Cuando alguien encuentra una mascota perdida, puede escanear el código QR, 
                 accediendo a la información de contacto del dueño y la ubicación donde fue escaneado el código, 
                 lo que permite una recuperación más rápida y segura. <br>
-                Además de la tecnología, la plataforma fomenta una comunidad de apoyo mutuo para asegurar que las mascotas vuelvan a casa.</p>
+                Además de la tecnología, la plataforma fomenta una comunidad de apoyo mutuo para asegurar que las mascotas vuelvan a casa.
+            </p>
             
-            <a href="#" class="btn">Saber más</a>
+            <a href="#" class="btn" >Saber más</a>
         </div>
 
     </div>
@@ -90,57 +122,7 @@
 
 <!-- menu section starts  -->
 
-<section class="refugios" id="refugios">
 
-    <h1 class="heading"> Refugios <span>Amigos</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="/static/images/refugio-1.png" alt="">
-            <h3>Gabrielitos</h3>
-             <div class="ig">@refugiogabrielito <!-- <span>Isidro Casanova</span>--></div> 
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-2.png" alt="">
-            <h3>Huellitas Embarradas</h3>
-            <div class="ig">@refugio_huellitas_embarradas<!--<span>Lanús Oeste</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-3.png" alt="">
-            <h3>Clemente Mamani</h3>
-            <div class="ig">@refuclementemamani <!--<span>Ituzaingó</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-4.png" alt="">
-            <h3>Los Hermanos Paticorti</h3>
-            <div class="ig">@loshermanospaticorti <!--<span>CABA</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-5.png" alt="">
-            <h3>Sentimiento Animal</h3>
-            <div class="ig">@fundacionsentimientoanimal <!--<span>Cañuelas</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-6.png" alt="">
-            <h3>Garritas Y Patitas</h3>
-            <div class="ig">@garritas.y.patitas <!--<span>Claypole</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-    </div>
-
-</section>
 
 <!-- menu section ends -->
 
@@ -352,7 +334,7 @@
     <div class="links">
         <a href="#about">Nosotros</a>
         <a href="#faq">Preguntas Frecuentes</a>
-        <a href="#refugios">Refugios Amigos</a>
+
         <a href="#noticias">Noticias</a>
  
     </div>

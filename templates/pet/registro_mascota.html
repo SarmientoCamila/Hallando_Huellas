@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +39,8 @@
 
 
 
-          <form action="/mascotas" method="POST" class="mt-3">
+          <form action="{{ url_for('agregar_mascota') }}" method="POST" class="mt-3">
+
             <div class="row mb-3">
               <label for="nombre" class="form-label">Nombres</label>
               <div class="col">
@@ -96,7 +97,7 @@
     
                             <label class="form-check-label"> <input type="radio" /> si</label>
                             <label class="form-check-label"> <input type="radio" /> no </label>
-                          <input type="text" class="form-control" id="vacunas" name="vacuna"
+                          <input type="text" class="form-control" id="vacunado" name="vacunado"
                             placeholder="dato importante a tener en cuenta" />
                        
                         </div>
@@ -137,7 +138,7 @@
     
                 </div> 
                 <div class="d-grid">
-                  <button type="submit" class="text-center btn btn-success">Enviar</button>
+                  <button type="submit" id="submit" name="submit" onclick="registro_mascota()" class="text-center btn btn-success">Enviar</button>
                 </div>
               </form>
             </div>

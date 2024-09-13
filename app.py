@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, Response, session, flash
+from flask import Flask, render_template, request, redirect, Response, session, flash, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, EmailField, TelField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from flask_mysqldb import MySQL
 from bcrypt import hashpw, gensalt, checkpw
 from email_validator import validate_email
+
 
 
 app = Flask(__name__)
@@ -129,32 +130,6 @@ def login():
     return render_template("auth/login.html", form=form)
 
 
-@app.route('/mascotas', methods=['GET', 'POST'])
-def registrar_mascota():
-    error = None
-    if request.method == 'POST':
-        # Obtener datos del formulario
-        nombre = request.form['nombre']
-        que_mascota = request.form['que_mascota']
-        raza = request.form['raza']
-        color = request.form['color']
-        anios_mascota = request.form['anios_mascota']
-        caracteristicas = request.form['caracteristicas']
-        enfermedades = request.form['enfermedades']
-        if not nombre or not que_mascota or not raza:
-            error = "Por favor, completa todos los campos obligatorios."
-        else:
-            return redirect('/mascotas')  # Redirigir o mostrar mensaje de éxito
-
-    return render_template("datos_mascota.html", error=error)
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
 # FORMA DE HACERLO SIN WTFORMS
 # if request.method == "POST":
 # si se envió el formulario se capturen los datos, se almacenen en las variables correspondientes
@@ -174,3 +149,103 @@ if __name__ == "__main__":
 #     else:
 #         error = "El telefono debe ser númerico y mayor a 6 caracteres. Contraseña debe tener de 8 a 20 caracteres."
 #         return render_template("auth/register.html", form=form, error=error)
+
+
+
+
+
+
+# Ruta para registrar una nueva mascota
+@app.route('/pet/mascotas', methods=['GET', 'POST'])
+def agregar_mascota():
+    error = None  # Inicializa la variable de error
+
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        que_mascota = request.form['que_mascota']
+        raza = request.form['raza']
+        color = request.form['color']
+        anios_mascota = request.form['anios_mascota']
+        caracteristicas = request.form['caracteristicas']
+        enfermedades = request.form['enfermedades']
+        vacunado = request.form.get('vacunado') == 'on'
+        medicamento = request.form['medicamento']
+        castrado = request.form.get('castrado') == 'on'
+
+        if not nombre or not que_mascota or not raza:
+            error = "Por favor, completa todos los campos obligatorios."
+        else:
+            cur = mysql.connection.cursor()
+            cur.execute("""
+                INSERT INTO mascotas 
+                (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado))
+            mysql.connection.commit()
+            cur.close()
+            return redirect(url_for('agregar_mascota'))
+
+
+    return render_template("pet/registro_mascota.html", error=error)
+
+
+# Ruta para mostrar todas las mascotas
+@app.route('/pet/mostrar_mascotas')
+def mostrar_mascotas():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM mascotas")
+    mascotas = cur.fetchall()
+    cur.close()
+    return render_template('perfil_mascota.html', mascotas=mascotas)
+
+# Ruta para mostrar el perfil de una mascota específica
+@app.route('/mascota/<int:id>', methods=['GET'])
+def mostrar_mascota(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM mascotas WHERE id = %s", [id])
+    mascota = cur.fetchone()
+    cur.close()
+    return render_template('perfil_mascota.html', mascota=mascota)
+
+# Ruta para editar los datos de una mascota
+@app.route('/mascota/<int:id>/editar', methods=['GET', 'POST'])
+def editar_mascota(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM mascotas WHERE id = %s", [id])
+    mascota = cur.fetchone()
+
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        que_mascota = request.form['que_mascota']
+        raza = request.form['raza']
+        color = request.form['color']
+        anios_mascota = request.form['anios_mascota']
+        caracteristicas = request.form['caracteristicas']
+        enfermedades = request.form['enfermedades']
+        vacunado = request.form.get('vacunado') == 'on'
+        medicamento = request.form['medicamento']
+        castrado = request.form.get('castrado') == 'on'
+        
+        cur.execute("""
+            UPDATE mascotas 
+            SET nombre=%s, tipo_animal=%s, raza=%s, color=%s, anios_mascota=%s, caracteristicas=%s, enfermedades=%s, vacunado=%s, medicamento=%s, castrado=%s 
+            WHERE id=%s
+        """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado, id ))
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for('mostrar_mascota', id=id))
+    
+    return render_template('editar_mascota.html', mascota=mascota)
+
+# Ruta para eliminar una mascota
+@app.route('/mascota/<int:id>/eliminar', methods=['POST'])
+def eliminar_mascota(id):
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM mascotas WHERE id = %s", [id])
+    mysql.connection.commit()
+    cur.close()
+    return redirect(url_for('mostrar_mascotas'))
+
+# Iniciar la aplicación
+if __name__ == '__main__':
+    app.run(debug=True)

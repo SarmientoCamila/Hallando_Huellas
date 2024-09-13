@@ -98,10 +98,63 @@ section {
   height: 6rem;
 }
 
-.header .navbar a {
-  margin: 0 1rem;
-  font-size: 1.6rem;
+.header .navbar {
+  float: left;
+
+	margin: 0;
+	padding: 0;
+	position: relative;
+
+}
+ul{
+  list-style: none; 
+}
+.header .navbar .nav_list ul {
+  display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #0d9fb3;
+	padding: 0;  
+  list-style: none;  
+}
+
+.header .navbar .nav_list ul a{
+	line-height: 120%;
+	padding: 10px 15px;
+}
+
+.header .navbar .nav_list ul{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	background-color: #fff;
+}
+
+.header .navbar .nav_list li:hover > ul{
+	display: block;
+}
+.header .navbar .nav_list ul li {
+  float: none;
+	width: 200px;
+}
+
+.header .navbar .nav_list a {
+  display:block;
+	text-decoration:none;
+	font-weight:700;
+	font-size:12px;
+	line-height:32px;
+	padding:0 15px;
   color: #000000;
+}
+
+.header .navbar li{
+  position: relative;
+	float:  left;
+	margin: 0;
+	padding: 0;
+  text-decoration: none;
 }
 
 .header .navbar a:hover {
@@ -340,7 +393,7 @@ section {
 .review .box-container .box p {
   font-size: 1.5rem;
   line-height: 1.8;
-  color: #ccc;
+  color: #5b5757;
   padding: 2rem 0;
 }
 
@@ -812,48 +865,6 @@ section {
   line-height: 1.8;
 }
 
-.refugios .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.5rem;
-}
-
-.refugios .box-container .box {
-  padding: 5rem;
-  text-align: center;
-  border: var(--border);
-}
-
-.refugios .box-container .box img {
-  height: 10rem;
-}
-
-.refugios .box-container .box h3 {
-  color: #000000;
-  font-size: 2rem;
-  padding: 1rem 0;
-}
-
-.refugios .box-container .box .ig {
-  color: #000000;
-  font-size: 1.5rem;
-  padding: 0.5rem 0;
-}
-
-.refugios .box-container .box .ig span {
-  font-size: 1rem;
-  text-decoration: line-through;
-  font-weight: lighter;
-}
-/* 
-.refugios .box-container .box:hover{
-    background:#ebeaea33;
-} */
-
-.refugios .box-container .box:hover > * {
-  color: var(--black);
-}
-
 .faq .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -939,18 +950,20 @@ section {
 }
 
 .review .box img.quote {
-  width: 30px;
+  width: 40px;
 }
 
 .review .box p {
   margin: 10px 0;
+  font-weight: bold;
   font-size: 15px;
   line-height: 1.6;
-  color: #333;
+  
 }
 
 .review .box h3 {
   font-size: 18px;
+  font-weight: 600;
   color: #333;
   margin: 10px 0;
 }
