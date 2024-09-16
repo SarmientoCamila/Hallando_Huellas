@@ -1,3 +1,6 @@
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // Aquí la lógica para verificar los datos del login
 let navbar = document.querySelector('.navbar');
 
 document.querySelector('#menu-btn').onclick = () =>{
@@ -27,3 +30,12 @@ window.onscroll = () =>{
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
 }
+const loginForm = document.querySelector('form.vertical-form');
+const misMascotasBtn = document.getElementById('mis-mascotas-btn');
+
+
+  // Si los datos son correctos, muestra el botón "Mis mascotas"
+  misMascotasBtn.style.display = 'block';
+  // Oculta el formulario de login
+  loginForm.style.display = 'none';
+});
