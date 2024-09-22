@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, request, jsonify, flash, redirect
+from flask import Blueprint, render_template, request, jsonify, flash, redirect, session
 from bcrypt import hashpw, gensalt, checkpw
 from email_validator import validate_email
 from .forms import RegisterUserForm, LoginForm
-from . import mysql
-from .utils import generate_qr_code
+from .utils import generate_qr_code, get_db_cursor
+
 
 main_routes = Blueprint('main', __name__)
 auth_routes = Blueprint('auth', __name__)
@@ -35,12 +35,12 @@ def register():
 
         password_hash = hashpw(password.encode("utf-8"), gensalt())
         try:
-            cur = mysql.connection.cursor()
+            cur = get_db_cursor()  # Usa la función para obtener el cursor
             cur.execute(
                 "INSERT INTO users (name, surname, address, phone, email, password_hash) VALUES (%s, %s, %s, %s, %s, %s)",
                 (name, surname, address, phone, email, password_hash),
             )
-            mysql.connection.commit()
+            cur.connection.commit()  # Usar el método commit del cursor
             cur.close()
             return redirect("/")
         except Exception as e:
@@ -55,7 +55,7 @@ def login():
         email = form.email.data
         password = form.password.data
 
-        cur = mysql.connection.cursor()
+        cur = get_db_cursor()  # Usa la función para obtener el cursor
         cur.execute("SELECT * FROM users WHERE email = %s", (email,))
         user = cur.fetchone()
         cur.close()
@@ -73,7 +73,7 @@ def login():
 
 @main_routes.route('/register_mascota', methods=['POST'])
 def register_mascota():
-    data = request.form  # Cambia de `request.get_json()` a `request.form` para obtener datos de un formulario
+    data = request.form  
     nombre = data.get('nombre')
     id_dueño = data.get('id_dueño')
     descripcion = data.get('descripcion')
@@ -85,25 +85,27 @@ def register_mascota():
 
     try:
         # Insertar la mascota en la base de datos
-        cur = mysql.connection.cursor()
+        cur = get_db_cursor()  # Usa la función para obtener el cursor
         cur.execute(
             "INSERT INTO mascotas (nombre, id_dueño, descripcion, telefono) VALUES (%s, %s, %s, %s)",
             (nombre, id_dueño, descripcion, telefono)
         )
-        mysql.connection.commit()
+        cur.connection.commit()  # Usar el método commit del cursor
         pet_id = cur.lastrowid  # Obtener el ID de la mascota recién insertada
+
         cur.close()
 
         # Generar el código QR
         qr_code = generate_qr_code(pet_id)
 
         # Actualizar la mascota con el código QR
-        cur = mysql.connection.cursor()
+        cur = get_db_cursor()  # Usa la función para obtener el cursor
+
         cur.execute(
             "UPDATE mascotas SET qr_code = %s WHERE id = %s",
             (qr_code, pet_id)
         )
-        mysql.connection.commit()
+        cur.connection.commit()  # Usar el método commit del cursor
         cur.close()
 
         return jsonify({'qr_code': qr_code}), 201
@@ -116,7 +118,7 @@ def register_mascota():
 def get_mascota(pet_id):
     try:
         # Obtener la mascota de la base de datos
-        cur = mysql.connection.cursor()
+        cur = get_db_cursor()  # Usa la función para obtener el cursor
         cur.execute("SELECT * FROM mascotas WHERE id = %s", (pet_id,))
         mascota = cur.fetchone()
         cur.close()

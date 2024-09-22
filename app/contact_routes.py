@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify
 from .utils import send_email  # Importar función desde utils.py
-from . import mysql
 
 contact_routes = Blueprint('contact', __name__)
 
 @contact_routes.route('/contacto/<int:pet_id>', methods=['GET'])
 def contacto(pet_id):
+    from app import mysql
     try:
         cur = mysql.connection.cursor()
         cur.execute("SELECT telefono FROM mascotas WHERE id = %s", (pet_id,))
@@ -21,6 +21,7 @@ def contacto(pet_id):
 
 @contact_routes.route('/report_location', methods=['POST'])
 def report_location():
+    from app import mysql
     data = request.get_json()
     pet_id = data.get('pet_id')
     latitude = data.get('latitude')
@@ -46,6 +47,7 @@ def report_location():
 
 @contact_routes.route('/report_address', methods=['POST'])
 def report_address():
+    from app import mysql
     data = request.get_json()
     pet_id = data.get('pet_id')
     address = data.get('address')

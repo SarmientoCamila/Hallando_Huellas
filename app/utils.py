@@ -4,7 +4,12 @@ from email.mime.multipart import MIMEMultipart
 import qrcode
 from io import BytesIO
 import base64
+from flask import current_app
 from .config import Config
+
+# Centraliza la obtención del cursor de MySQL
+def get_db_cursor():
+    return current_app.extensions['mysql'].connection.cursor()
 
 
 def send_email(to_email, subject, body):
