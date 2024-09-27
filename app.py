@@ -183,20 +183,20 @@ def agregar_mascota():
             """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado))
             mysql.connection.commit()
             cur.close()
-            return redirect(url_for('agregar_mascota'))
-
+            return redirect(url_for('mostrar_mascotas'))  # Redirigir después de agregar
 
     return render_template("pet/registro_mascota.html", error=error)
 
 
 # Ruta para mostrar todas las mascotas
-@app.route('/pet/mostrar_mascotas')
+@app.route('/mostrar_mascotas')
 def mostrar_mascotas():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM mascotas")
     mascotas = cur.fetchall()
     cur.close()
-    return render_template('perfil_mascota.html', mascotas=mascotas)
+    return render_template('pet/mostrar_mascotas.html', mascotas=mascotas)
+
 
 # Ruta para mostrar el perfil de una mascota específica
 @app.route('/mascota/<int:id>', methods=['GET'])
@@ -205,7 +205,8 @@ def mostrar_mascota(id):
     cur.execute("SELECT * FROM mascotas WHERE id = %s", [id])
     mascota = cur.fetchone()
     cur.close()
-    return render_template('perfil_mascota.html', mascota=mascota)
+    return render_template('pet/perfil_mascota.html', mascota=mascota)
+
 
 # Ruta para editar los datos de una mascota
 @app.route('/mascota/<int:id>/editar', methods=['GET', 'POST'])
@@ -228,14 +229,15 @@ def editar_mascota(id):
         
         cur.execute("""
             UPDATE mascotas 
-            SET nombre=%s, tipo_animal=%s, raza=%s, color=%s, anios_mascota=%s, caracteristicas=%s, enfermedades=%s, vacunado=%s, medicamento=%s, castrado=%s 
+            SET nombre=%s, que_mascota=%s, raza=%s, color=%s, anios_mascota=%s, caracteristicas=%s, enfermedades=%s, vacunado=%s, medicamento=%s, castrado=%s 
             WHERE id=%s
-        """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado, id ))
+        """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado, id))
         mysql.connection.commit()
         cur.close()
         return redirect(url_for('mostrar_mascota', id=id))
     
-    return render_template('editar_mascota.html', mascota=mascota)
+    return render_template('pet/editar_mascota.html', mascota=mascota)
+
 
 # Ruta para eliminar una mascota
 @app.route('/mascota/<int:id>/eliminar', methods=['POST'])
@@ -245,6 +247,7 @@ def eliminar_mascota(id):
     mysql.connection.commit()
     cur.close()
     return redirect(url_for('mostrar_mascotas'))
+
 
 # Iniciar la aplicación
 if __name__ == '__main__':

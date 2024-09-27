@@ -121,13 +121,13 @@ ul{
 
 .header .navbar .nav_list ul a{
 	line-height: 120%;
-	padding: 10px 15px;
+	padding: 15px 30px;
 }
 
 .header .navbar .nav_list ul{
 	position: absolute;
 	top: 0;
-	left: 50%;
+	left: 90%;
 	background-color: #fff;
 }
 

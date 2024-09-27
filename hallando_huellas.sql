@@ -50,15 +50,13 @@ CREATE TABLE `mascotas` (
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `surname` varchar(100) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `phone` varchar(15) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `password_hash` blob NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password_hash` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Índices para tablas volcadas
 --
@@ -76,7 +74,6 @@ ALTER TABLE `mascotas`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email` (`email`);
-
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
@@ -91,7 +88,8 @@ ALTER TABLE `mascotas`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+COMMIT;
 
 --
 -- Restricciones para tablas volcadas
