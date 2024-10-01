@@ -198,21 +198,24 @@ def mostrar_mascotas():
     return render_template('pet/mostrar_mascotas.html', mascotas=mascotas)
 
 
+
 # Ruta para mostrar el perfil de una mascota específica
-@app.route('/mascota/<int:id>', methods=['GET'])
-def mostrar_mascota(id):
+@app.route('/mascota/<int:pet_id>', methods=['GET'])
+def mostrar_mascota(pet_id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM mascotas WHERE id = %s", [id])
+    cur.execute("SELECT * FROM mascotas WHERE id = %s", [pet_id])
     mascota = cur.fetchone()
     cur.close()
     return render_template('pet/perfil_mascota.html', mascota=mascota)
 
 
+
+
 # Ruta para editar los datos de una mascota
-@app.route('/mascota/<int:id>/editar', methods=['GET', 'POST'])
-def editar_mascota(id):
+@app.route('/mascota/<int:pet_id>/editar', methods=['GET', 'POST'])
+def editar_mascota(pet_id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM mascotas WHERE id = %s", [id])
+    cur.execute("SELECT * FROM mascotas WHERE id = %s", [pet_id])
     mascota = cur.fetchone()
 
     if request.method == 'POST':
@@ -231,19 +234,19 @@ def editar_mascota(id):
             UPDATE mascotas 
             SET nombre=%s, que_mascota=%s, raza=%s, color=%s, anios_mascota=%s, caracteristicas=%s, enfermedades=%s, vacunado=%s, medicamento=%s, castrado=%s 
             WHERE id=%s
-        """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado, id))
+        """, (nombre, que_mascota, raza, color, anios_mascota, caracteristicas, enfermedades, vacunado, medicamento, castrado, pet_id))
         mysql.connection.commit()
         cur.close()
-        return redirect(url_for('mostrar_mascota', id=id))
+        return redirect(url_for('mostrar_mascota', pet_id=pet_id))
     
     return render_template('pet/editar_mascota.html', mascota=mascota)
 
 
 # Ruta para eliminar una mascota
-@app.route('/mascota/<int:id>/eliminar', methods=['POST'])
-def eliminar_mascota(id):
+@app.route('/mascota/<int:pet_id>/eliminar', methods=['POST'])
+def eliminar_mascota(pet_id):
     cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM mascotas WHERE id = %s", [id])
+    cur.execute("DELETE FROM mascotas WHERE id = %s", [pet_id])
     mysql.connection.commit()
     cur.close()
     return redirect(url_for('mostrar_mascotas'))

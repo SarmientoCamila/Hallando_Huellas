@@ -86,7 +86,7 @@
     <div class="container">
         <h1>Editar Mascota: {{ mascota.nombre }}</h1>
         
-        <form method="POST" action="{{ url_for('editar_mascota', id=mascota.id) }}">
+        <form method="POST" action="{{ url_for('editar_mascota', pet_id=mascota.id) }}">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" value="{{ mascota.nombre }}" required>
 

@@ -96,8 +96,8 @@
         </div>
 
         <div class="buttons">
-            <a href="{{ url_for('editar_mascota', id=mascota.id) }}">Editar</a>
-            <form action="{{ url_for('eliminar_mascota', id=mascota.id) }}" method="POST">
+            <a href="{{ url_for('editar_mascota', pet_id=mascota.id) }}">Editar</a>
+            <form action="{{ url_for('eliminar_mascota', pet_id=mascota.id) }}" method="POST">
                 <button type="submit" class="delete-btn">Eliminar</button>
             </form>
         </div>
