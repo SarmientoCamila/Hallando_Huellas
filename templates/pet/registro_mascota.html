@@ -29,7 +29,9 @@
           </div>
           {% endif %}
 
-          <form method="POST" action="{{ url_for('agregar_mascota') }}" class="mt-3">
+          <form method="POST" action="{{ url_for('agregar_mascota') }}" enctype="multipart/form-data" class="mt-3">
+
+            
             <div class="row mb-3">
               <label for="nombre" class="form-label">Nombre</label>
               <div class="col">
@@ -125,6 +127,13 @@
               <label for="tratopers" class="form-label">¿Cómo describirías el trato con adultos y niños?</label>
               <div class="col">
                 <input type="text" class="form-control" id="tratopers" name="tratopers" placeholder="Describa su comportamiento con personas" />
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="foto_mascota" class="form-label">Sube una foto de tu mascota</label>
+              <div class="col">
+                <input type="file" class="form-control" id="foto_mascota" name="foto_mascota" accept="image/*" required />
               </div>
             </div>
 
