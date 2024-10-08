@@ -97,7 +97,7 @@
             {% for mascota in mascotas %}
                 <li>
                     <div class="mascota-info">
-                        <a href="{{ url_for('mostrar_mascota', pet_id=mascota.id) }}">{{ mascota.nombre }}</a>
+                        <a href="{{ url_for('mostrar_mascota', pet_id=mascota.pet_id) }}">{{ mascota.nombre }}</a>
                         <span>{{ mascota.que_mascota }} - {{ mascota.raza }}</span>
                     </div>
                 </li>

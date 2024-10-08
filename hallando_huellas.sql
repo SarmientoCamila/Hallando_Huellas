@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `mascotas` (
-  `id` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `que_mascota` varchar(50) NOT NULL,
   `raza` varchar(100) DEFAULT NULL,
