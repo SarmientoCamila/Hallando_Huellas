@@ -18,7 +18,7 @@
         <nav class="navbar">
           <ul class="nav-list">
             <li><a href="{{ url_for('home') }}">Inicio</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Mi perfil</a></li>
             <li><a href="{{ url_for('mostrar_mascotas') }}">Mostrar Mascotas</a></li>
           </ul>
         </nav>
@@ -29,7 +29,7 @@
     <section class="main-section">
       <div class="container">
         <div class="form-container">
-          <h1>Registrar Nueva Mascota</h1>
+          <h1>Registrar nueva mascota</h1>
           {% if error %}
           <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Error</h4>

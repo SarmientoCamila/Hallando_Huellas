@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Perfil de {{ mascota.nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil_mascota.css') }}" />
 </head>
+
 <body>
-    <h1>Perfil de {{ mascota.nombre }}</h1>
+    <header class="header">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="logo">Hallando Huellas</a>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                    <li><a href="#">Mi perfil</a></li>
+                    <li><a href="{{ url_for('mostrar_mascotas') }}">Mostrar Mascotas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <img src="{{ url_for('static', filename='uploads/' + mascota.foto_mascota) }}" alt="Foto de la mascota" style="width: 200px; height: auto;"><br>
+    <section class="main-section">
+        <div class="container-card">
+            <h1>Perfil de {{ mascota.nombre }}</h1>
 
-    <p><strong>Tipo de Mascota:</strong> {{ mascota.que_mascota }}</p>
-    <p><strong>Raza:</strong> {{ mascota.raza }}</p>
-    <p><strong>Color:</strong> {{ mascota.color }}</p>
-    <p><strong>Edad:</strong> {{ mascota.anios_mascota }} años</p>
-    <p><strong>Características:</strong> {{ mascota.caracteristicas }}</p>
-    <p><strong>Enfermedades:</strong> {{ mascota.enfermedades }}</p>
-    <p><strong>Vacunado:</strong> {{ 'Sí' if mascota.vacunado else 'No' }}</p>
-    <p><strong>Medicamento:</strong> {{ mascota.medicamento }}</p>
-    <p><strong>Castrado:</strong> {{ 'Sí' if mascota.castrado else 'No' }}</p>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='uploads/' + mascota.foto_mascota) }}"
+                    alt="Foto de la mascota" />
+            </div>
 
-    <a href="{{ url_for('editar_mascota', pet_id=mascota.pet_id) }}">Editar</a>
-    <form action="{{ url_for('eliminar_mascota', pet_id=mascota.pet_id) }}" method="POST" style="display:inline;">
-        <button type="submit">Eliminar</button>
-    </form>
+            <div class="container-perfil">
+                <p><strong>Tipo de Mascota:</strong> {{ mascota.que_mascota }}</p>
+                <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+                <p><strong>Color:</strong> {{ mascota.color }}</p>
+                <p><strong>Edad:</strong> {{ mascota.anios_mascota }} años</p>
+                <p><strong>Características:</strong> {{ mascota.caracteristicas }}</p>
+                <p><strong>Enfermedades:</strong> {{ mascota.enfermedades }}</p>
+                <p><strong>Vacunado:</strong> {{ 'Sí' if mascota.vacunado else 'No' }}</p>
+                <p><strong>Medicamento:</strong> {{ mascota.medicamento }}</p>
+                <p><strong>Castrado:</strong> {{ 'Sí' if mascota.castrado else 'No' }}</p>
+            </div>
 
-    <a href="{{ url_for('mostrar_mascotas') }}">Volver a la lista de mascotas</a>
+            <div class="actions">
+                <a href="{{ url_for('editar_mascota', pet_id=mascota.pet_id) }}" class="btn edit-btn">Editar</a>
+                <form action="{{ url_for('eliminar_mascota', pet_id=mascota.pet_id) }}" method="POST"
+                    style="display: inline">
+                    <button type="submit" class="btn delete-btn">Eliminar</button>
+                </form>
+            </div>
+
+            <a href="{{ url_for('mostrar_mascotas') }}" class="btn back-btn">Volver a la lista de mascotas</a>
+        </div>
+    </section>
 </body>
+
 </html>

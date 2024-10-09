@@ -1,0 +1,121 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Fondo celeste suave */
+    color: #333;
+    margin: 0;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    background-color: #0a5d91; /* Color principal */
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: "Leckerli One", cursive;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    background-color: #2191db; /* Color de hover */
+    border-radius: 5px;
+}
+
+/* Sección principal */
+.main-section {
+    padding: 40px 20px;
+}
+
+/* Contenedor de mascotas */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f4f6f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las tarjetas de mascotas */
+.mascota-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.mascota-card {
+    background-color: #f9f9f9; /* Fondo de la tarjeta */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px; /* Ancho fijo para las tarjetas */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave */
+    display: block; /* Para asegurarse de que el enlace cubra toda la tarjeta */
+    text-decoration: none;
+}
+
+.mascota-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más profunda al pasar el ratón */
+}
+
+
+.image-container img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+}
+
+.mascota-card h2 {
+    font-size: 20px;
+    color: #0a5d91; /* Color del nombre de la mascota */
+    margin: 10px 0 5px;
+}
+
+.mascota-info {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Mensaje si no hay mascotas */
+.no-mascotas {
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+}
+
