@@ -9,6 +9,7 @@ import os
 from werkzeug.utils import secure_filename
 
 
+
 app = Flask(__name__)
 app.config.from_mapping(
     SECRET_KEY="claveSecretaaa83748"
