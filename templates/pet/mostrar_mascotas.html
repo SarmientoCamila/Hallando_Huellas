@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Mascotas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mascotas.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="logo">Hallando Huellas</a>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                    <li><a href="#">Mi perfil</a></li>
+                    <li><a href="{{ url_for('mostrar_mascotas') }}">Mostrar Mascotas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main-section">
+        <div class="container">
+            <h1>Lista de Mascotas Registradas</h1>
+            <div class="mascota-cards">
+                {% if mascotas %}
+                    {% for mascota in mascotas %}
+                        <a href="{{ url_for('mostrar_mascota', pet_id=mascota.pet_id) }}" class="mascota-card">
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='uploads/' + mascota.foto_mascota) }}"
+                                     alt="Foto de {{ mascota.nombre }}">
+                            </div>
+                            <h2>{{ mascota.nombre }}</h2>
+                            <p class="mascota-info">{{ mascota.que_mascota }} - {{ mascota.raza }}</p>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-mascotas">No hay mascotas registradas.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

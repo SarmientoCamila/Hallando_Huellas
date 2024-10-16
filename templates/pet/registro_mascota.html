@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar Mascota</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/reg_mascota.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- Header con nav bien estructurado -->
+    <header class="header">
+      <div class="navbar-container">
+        <a href="{{ url_for('home') }}" class="logo">Hallando Huellas</a>
+        <nav class="navbar">
+          <ul class="nav-list">
+            <li><a href="{{ url_for('home') }}">Inicio</a></li>
+            <li><a href="#">Mi perfil</a></li>
+            <li><a href="{{ url_for('mostrar_mascotas') }}">Mostrar Mascotas</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sección principal -->
+    <section class="main-section">
+      <div class="container">
+        <div class="form-container">
+          <h1>Registrar nueva mascota</h1>
+          {% if error %}
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error</h4>
+            <p>El formulario no se ha enviado correctamente.</p>
+            <hr />
+            <p class="mb-0">{{ error }}</p>
+          </div>
+          {% endif %}
+
+          <form
+            method="POST"
+            action="{{ url_for('agregar_mascota') }}"
+            enctype="multipart/form-data"
+          >
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+
+            <label for="que_mascota">Tipo de Mascota:</label>
+            <input type="text" id="que_mascota" name="que_mascota" required />
+
+            <label for="raza">Raza:</label>
+            <input type="text" id="raza" name="raza" />
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" />
+
+            <label for="anios_mascota">Edad (años):</label>
+            <input type="number" id="anios_mascota" name="anios_mascota" />
+
+            <label for="caracteristicas">Características:</label>
+            <textarea id="caracteristicas" name="caracteristicas"></textarea>
+
+            <label for="enfermedades">Enfermedades:</label>
+            <textarea id="enfermedades" name="enfermedades"></textarea>
+
+            <label for="vacunado">¿Está vacunado?</label>
+            <input type="checkbox" id="vacunado" name="vacunado" />
+
+            <label for="medicamento">Medicamento:</label>
+            <input type="text" id="medicamento" name="medicamento" />
+
+            <label for="castrado">¿Está castrado?</label>
+            <input type="checkbox" id="castrado" name="castrado" />
+
+            <label for="foto_mascota">Foto de la mascota:</label>
+            <input type="file" id="foto_mascota" name="foto_mascota" accept="image/*" />
+
+            <button type="submit">Registrar Mascota</button>
+          </form>
+        </div>
+        <div class="image-container">
+          <img
+            src="{{ url_for('static', filename='images/registro.png') }}"
+            alt="Registro de Mascota"
+          />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

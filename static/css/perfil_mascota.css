@@ -1,0 +1,164 @@
+/* Estilo general */
+
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+    --main-color: #0a5d91;
+    --accent-color: #2191db;
+    --hover-color: #005f99;
+    --danger-color: #d9534f;
+    --bg-color: #f0f8ff;
+    --text-color: #333;
+    --white: #fff;
+    --border-radius: 8px;
+  }
+  
+  /* Reset de márgenes y paddings */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos generales */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column
+  }
+  
+  /* Header */
+  .header {
+    width: 100%;
+    background-color: var(--main-color);
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  
+  .logo {
+    
+    color: white;
+    text-decoration: none;
+    font-family: "Leckerli One", cursive;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 50px;
+    vertical-align: middle;
+}
+  .navbar .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-list li a {
+    font-size: 1.2rem;
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-list li a:hover {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+  }
+  
+  /* Main Section */
+  .main-section {
+    padding: 40px 20px;
+    width: 100%;
+  }
+  
+  .container-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    color: var(--main-color);
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+  }
+  
+  .image-container img {
+    width: 200px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .container-perfil p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .container-perfil p strong {
+    color: var(--main-color);
+  }
+  
+  /* Botones */
+  .actions {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--white);
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .edit-btn {
+    background-color: var(--main-color);
+  }
+  
+  .edit-btn:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .delete-btn {
+    background-color: var(--danger-color);
+  }
+  
+  .delete-btn:hover {
+    background-color: #c9302c;
+  }
+  
+  .back-btn {
+    background-color: var(--accent-color);
+    margin-top: 20px;
+  }
+  
+  .back-btn:hover {
+    background-color: var(--hover-color);
+  }
+  
