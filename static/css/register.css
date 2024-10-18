@@ -1,0 +1,150 @@
+/* General */
+body.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e1f5fe; /* Fondo azul claro */
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    padding: 30px;
+    color: #003366;
+    flex-direction: row; /* Alinear horizontalmente */
+  }
+  
+  /* Sección de la imagen */
+  .imagen-gatito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-right: 30px; /* Separación con el formulario */
+  }
+  
+  .imagen-gatito img {
+    width: 600px; /* Ajuste del tamaño */
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .imagen-gatito img:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento al pasar el mouse */
+  }
+  
+  /* Sección de Registro */
+  #login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .login-box {
+    background-color: #ffffff; /* Fondo blanco */
+    width: 400px;
+    padding: 40px 30px;
+    border-radius: 10px; /* Borde redondeado */
+    border-top-right-radius: 30px; /* Redondeo más grande en la esquina superior derecha */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-top: 6px solid #0277bd; /* Línea superior azul más intensa */
+  }
+  
+  /* Encabezado */
+  .login-box h2 {
+    color: #01579b; /* Azul oscuro */
+    margin-bottom: 25px;
+    font-size: 28px; /* Texto más grande */
+  }
+  
+  /* Flash Messages */
+  .flash {
+    margin-bottom: 20px;
+  }
+  
+  .flash div {
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #0288d1; /* Azul intermedio */
+    margin-bottom: 8px;
+  }
+  
+  /* Input y Formulario */
+  .vertical-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Más espacio entre elementos */
+  }
+  
+  .inputBox {
+    background-color: #e3f2fd; /* Azul muy claro */
+    padding: 2px;
+    border-radius: 8px;
+    border: 1px solid #b3e5fc; /* Azul suave */
+    transition: border-color 0.3s; /* Transición para el borde */
+  }
+  
+  .inputBox input {
+    width: 96%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno al enfocar */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #01579b; /* Texto azul oscuro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    transition: background-color 0.3s; /* Transición para el fondo */}
+  
+  /* Botón de Registro */
+  input[type="submit"] {
+    background-color: #0277bd; /* Azul oscuro */
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #01579b; /* Azul aún más oscuro */
+    transform: translateY(-2px); /* Efecto de elevación */
+  }
+  
+  /* Enlace inferior */
+  .bottom-form-link {
+    margin-top: 10px;
+    color: #0277bd; /* Azul oscuro */
+  }
+  
+  .bottom-form-link a {
+    color: #01579b; /* Azul muy oscuro */
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  .bottom-form-link a:hover {
+    color: #01386e; /* Azul más intenso */
+  }
+  
+  /* Adaptaciones para dispositivos móviles */
+  @media screen and (max-width: 768px) {
+    body.contenedor {
+      flex-direction: column; /* Cambiar a disposición vertical */
+    }
+  
+    .imagen-gatito {
+      margin-bottom: 20px;
+    }
+  
+    .login-box {
+      width: 90%;
+      padding: 30px;
+    }
+  
+    .imagen-gatito img {
+      width: 200px;
+    }
+  }
+  

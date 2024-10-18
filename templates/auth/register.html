@@ -10,9 +10,15 @@
      Si entra en la exception, la categoría es "error". 
      El mensaje que se muestra es el primer parámetro de flash(), esto quiere decir:
      flash(message, category)-->
-    <link rel="stylesheet" href="/static/css/login.css" />
+    <link rel="stylesheet" href="/static/css/register.css" />
   </head>
-  <body>
+  <body class="contenedor">
+    <section>
+      <div class="imagen-gatito">
+        <img src="/static/images/pngwing.png" alt="Logo" />
+      </div>
+    </section>
+
     <section id="login-section">
       <div class="login-box">
         <h2>Registro de usuario</h2>
@@ -29,7 +35,8 @@
         {% endif %} {% endwith %}
 
         <form action="" method="post" class="vertical-form">
-          {{ form.hidden_tag() }} <!-- NO TOCAR. Seguridad del formulario -->
+          {{ form.hidden_tag() }}
+          <!-- NO TOCAR. Seguridad del formulario -->
           <div class="inputBox">{{ form.name }}{{ form.name.label }}</div>
           <div class="inputBox">{{ form.surname }}{{ form.surname.label }}</div>
           <div class="inputBox">{{ form.address }}{{ form.address.label }}</div>
