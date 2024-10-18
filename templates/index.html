@@ -1,764 +1,386 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hallando Huellas Página Oficial</title>
+<html lang="es">
 
-    <!-- custom css file link  -->
-<<<<<<< HEAD
-    <link rel="stylesheet" href="static/css/style.css" />
-=======
-<<<<<<<< HEAD:index.html
-    <link rel="stylesheet" href="static/css/style.css" />
-========
-    <link rel="stylesheet" href="static/css/style.css">
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hallando Huellas Página Oficial</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <!-- Link para Swiper.js CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-  </head>
-  <body>
-    <!-- header section starts  -->
-    <header class="header">
-      <div class="container">
-        <a href="#" class="logo leckerli-one-regular">
-          <img
-            src="/static/images/logo.png"
-            alt="Hallando Huellas"
-            class="logo-image"
-          />
-          <span class="logo-text">Hallando Huellas</span>
-        </a>
+  <!-- custom css file link  -->
 
-        <nav class="navbar" id="navbar">
-          <ul class="nav_list">
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="#faq">Preguntas Frecuentes</a></li>
-            <li><a href="#noticias">Noticias</a></li>
-            <li><a href="auth/login">Ingresar</a></li>
-            <li class="dropdown-container">
-              <a href="#">Perfil <i class="fas fa-caret-down"></i></a>
-              <ul class="dropdown">
-                <li><a href="#">Ver perfil</a></li>
-                <li>
-                  <a href="{{ url_for('mostrar_mascotas') }}">Mi mascota</a>
-                </li>
-                <li><a href="#">Administrar cuenta</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
 
-        <div class="menu-icon" id="menu-btn">
-          <i class="fas fa-bars"></i>
-        </div>
+
+  <link rel="stylesheet" href="static/css/style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <!-- Link para Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <!-- header section starts  -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo leckerli-one-regular">
+        <img src="/static/images/logo.png" alt="Hallando Huellas" class="logo-image" />
+        <span class="logo-text">Hallando Huellas</span>
+      </a>
+
+      <nav class="navbar" id="navbar">
+        <ul class="nav_list">
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="auth/login">Ingresar</a></li>
+          <li class="dropdown-container">
+            <a href="#">Perfil <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="#">Ver perfil</a></li>
+              <li>
+                <a href="{{ url_for('mostrar_mascotas') }}">Mi mascota</a>
+              </li>
+              <li><a href="#">Administrar cuenta</a></li>
+              <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="menu-icon" id="menu-btn">
+        <i class="fas fa-bars"></i>
       </div>
-    </header>
-
-<<<<<<< HEAD
-    <!-- header section ends -->
-
-    <!-- home section starts  -->
-=======
-<<<<<<<< HEAD:index.html
-    <!-- header section ends -->
-
-    <!-- home section starts  -->
-========
-    <a href="#" class="logo leckerli-one-regular">
-        <img src="/static/images/logo.png" alt="">
-             Hallando Huellas
-    </a>
-
-    <nav class="navbar">
-        <a href="#about">Nosotros</a>
-        <a href="#faq">Preguntas Frecuentes</a>
-        <a href="#refugios">Refugios Amigos</a>
-        <a href="#noticias">Noticias</a>
-        <a href="auth/login">Ingresar</a>
-       
-    </nav>
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-
-    <section class="home cover" id="home">
-      <!-- imagen perro y gato -->
-      <img src="/static/images/bottom_wave.png" class="wave" alt="" />
-    </section>
-
-    <!-- home section ends -->
-
-    <!-- about section starts  -->
-
-    <section class="about" id="about">
-      <h1 class="heading"><span>Sobre</span> Nosotros</h1>
-
-      <div class="row">
-        <div class="image">
-<<<<<<< HEAD
-          <img src="/static/images/Group.png" alt="Imagen sobre nosotros" />
-=======
-<<<<<<<< HEAD:index.html
-          <img src="/static/images/Group.png" alt="Imagen sobre nosotros" />
-========
-            <img src="/static/images/about-img.png" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-        </div>
-
-        <div class="content">
-          <h3>¿Qué es Hallando Huellas?</h3>
-          <p>
-            Hallando Huellas es una aplicación web diseñada para facilitar la
-            reunificación de mascotas perdidas con sus dueños. Utiliza
-            tecnología de geolocalización y códigos QR personalizados que se
-            colocan en el collar de la mascota. Cuando alguien encuentra una
-            mascota perdida, puede escanear el código QR, accediendo a la
-            información de contacto del dueño y la ubicación donde fue escaneado
-            el código, lo que permite una recuperación más rápida y segura.
-            Además de la tecnología, la plataforma fomenta una comunidad de
-            apoyo mutuo para asegurar que las mascotas vuelvan a casa.
-          </p>
-          <a href="#" class="btn">Saber más</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- about section ends -->
-
-    <section class="faq" id="faq">
-      <h1 class="heading"><span>Preguntas</span> Frecuentes</h1>
-
-      <div class="box-container">
-        <div class="box">
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-          <div class="image">
-            <img src="/static/images/gato_qr.png" alt="Imagen de gato" />
-          </div>
-          <div class="content">
-            <h3>¿Cómo puedo registrar mi mascota?</h3>
-            <p>
-              Para registrar a tu mascota, simplemente ingresa a la sección de
-              registro y sigue los pasos indicados.
-            </p>
-            <a href="/pet/mascotas" class="btn">Registrar mascota</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img
-              src="/static/images/74342723-88e8-4792-8e5c-2fe94fca9456.png"
-              alt="Imagen de contacto"
-            />
-          </div>
-          <div class="content">
-            <h3>Encontré una mascota, ¿cómo contacto a su dueño?</h3>
-            <p>
-              Si encuentras una mascota perdida, escanea el código QR en su
-              collar y se te mostrará la información de contacto del dueño.
-            </p>
-            <a href="#" class="btn">Contactar dueño</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img
-              src="/static/images/perros_con_qr.png"
-              alt="Imagen de perros con QR"
-            />
-          </div>
-          <div class="content">
-            <h3>¿Cuáles son los puntos de encuentro?</h3>
-            <p>
-              Los puntos de encuentro recomendados son áreas públicas como
-              parques, plazas y lugares bien iluminados. Te recomendamos
-              coordinar con el dueño de la mascota.
-            </p>
-            <a href="#" class="btn">Puntos de encuentro</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img
-              src="/static/images/perro-gato-miran-es-gato_862330-11431.jpg"
-              alt="Imagen de perros con QR"
-            />
-          </div>
-          <div class="content">
-            <h3>¿Cómo coordino un encuentro para devolver la mascota?</h3>
-            <p>
-              Luego de escanear el código QR de la mascota, podrás elegir la
-              opción para coordinar un encuentro con el dueño. Podrás ingresar
-              un lugar y hora de encuentro para devolver a la mascota.
-            </p>
-            <a href="#" class="btn">Más informacion</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img
-              src="/static/images/kitten-plays-yarn-stockcake.jpg"
-              alt="Imagen de perros con QR"
-            />
-          </div>
-          <div class="content">
-            <h3>¿Cómo funciona el sistema de código QR para mascotas?</h3>
-            <p>
-              Cada mascota registrada recibe un código QR único que puedes
-              colocar en su collar. Si alguien encuentra a tu mascota, puede
-              escanear el código con su teléfono y acceder a tus datos de
-              contacto para devolvértela.
-            </p>
-            <a href="#" class="btn">Más informacion</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img
-              src="/static/images/aspect-ratio_default_0.jpg"
-              alt="Imagen de perros con QR"
-            />
-          </div>
-          <div class="content">
-            <h3>¿Quién puede ver la información de contacto de mi mascota?</h3>
-            <p>
-              Solo las personas que encuentren a tu mascota perdida y escaneen
-              directamente su código QR podrán ver tu información de contacto y
-              elegir el punto de encuentro. No compartimos tus datos con
-              terceros.
-            </p>
-            <a href="#" class="btn">Más informacion</a>
-          </div>
-<<<<<<< HEAD
-=======
-========
-            <img src="/static/images/refugio-1.png" alt="">
-            <h3>Gabrielitos</h3>
-             <div class="ig">@refugiogabrielito <!-- <span>Isidro Casanova</span>--></div> 
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-2.png" alt="">
-            <h3>Huellitas Embarradas</h3>
-            <div class="ig">@refugio_huellitas_embarradas<!--<span>Lanús Oeste</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-3.png" alt="">
-            <h3>Clemente Mamani</h3>
-            <div class="ig">@refuclementemamani <!--<span>Ituzaingó</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-4.png" alt="">
-            <h3>Los Hermanos Paticorti</h3>
-            <div class="ig">@loshermanospaticorti <!--<span>CABA</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-5.png" alt="">
-            <h3>Sentimiento Animal</h3>
-            <div class="ig">@fundacionsentimientoanimal <!--<span>Cañuelas</span>--></div>
-            <a href="#" class="btn">Más Info</a>
-        </div>
-
-        <div class="box">
-            <img src="/static/images/refugio-6.png" alt="">
-            <h3>Garritas Y Patitas</h3>
-            <div class="ig">@garritas.y.patitas <!--<span>Claypole</span>--></div>
-            <a href="#" class="btn">Más Info</a>
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-        </div>
-      </div>
-    </section>
-
-    <section class="noticias" id="noticias">
-      <h1 class="heading">Nuestras <span>noticias</span></h1>
-
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-      <!-- Swiper Container -->
-      <div class="swiper-container">
-        <!-- Swiper Wrapper -->
-        <div class="swiper-wrapper">
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img src="/static/images/perro_rescatado.png" alt="" />
-<<<<<<< HEAD
-=======
-========
-</section>
-
-<!-- menu section ends -->
-
-<section class="faq" id="faq">
-
-    <h1 class="heading"><span>Preguntas</span> Frecuentes  </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <div class="icons">
-                
-                <a href="#" class="fas fa-heart"></a>
-                
-            </div>
-            <div class="image">
-                <img src="/static/images/gato qr.png" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-            </div>
-            <div class="content">
-              <a href="#" class="title"
-                >ATENCIÓN ZONA ITUZAINGO PARQUE LELOIR</a
-              >
-              <span>Calle Udaondo 1695 Predio INTA</span>
-              <p>
-                Apareció recién un cachorro macho de 1 año aproximadamente.
-                <br />
-                La dueña recibió un mensaje para coordinar su encuentro.
-              </p>
-              <a href="#" class="btn">Más Info</a>
-            </div>
-          </div>
-
-<<<<<<< HEAD
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img src="/static/images/perro_en_refugio.png" alt="" />
-=======
-<<<<<<<< HEAD:index.html
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img src="/static/images/perro_en_refugio.png" alt="" />
-========
-        <div class="box">
-            <div class="icons">
-                
-                <a href="#" class="fas fa-heart"></a>
-               
-            </div>
-            <div class="image">
-                <img src="/static/images/74342723-88e8-4792-8e5c-2fe94fca9456.png" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-            </div>
-            <div class="content">
-              <a href="#" class="title"
-                >Coco se encontró cerca de la plaza de Ituzaingó</a
-              >
-              <span>Zona de Ituzaingó Sur</span>
-              <p>
-                @aninomo_33 llevó a Coco al punto de encuentro coordinado con su
-                dueño. <br />
-                Pronto regresara a su casa con el dueño.
-              </p>
-              <a href="#" class="btn">Más Info</a>
-            </div>
-          </div>
-
-<<<<<<< HEAD
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img src="/static/images/gatitos_encontrados.jpg" alt="" />
-=======
-<<<<<<<< HEAD:index.html
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img src="/static/images/gatitos_encontrados.jpg" alt="" />
-========
-        <div class="box">
-            <div class="icons">
-               
-                <a href="#" class="fas fa-heart"></a>
-               
-            </div>
-            <div class="image">
-                <img src="/static/images/perros con qr (1).png" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-            </div>
-            <div class="content">
-              <a href="#" class="title">Cleo y Nina están en casa</a>
-              <span>Reencuentro en Ituzaingó</span>
-              <p>
-                Cleo y Nina regresaron a casa con su dueño luego de tres días
-                extraviadas <br />
-                ¡Gracias a todos los que ayudaron!
-              </p>
-              <a href="#" class="btn">Más Info</a>
-            </div>
-          </div>
-
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img src="/static/images/woman-pet.jpg" alt="" />
-            </div>
-            <div class="content">
-              <a href="#" class="title">¡Perro encontrado en Castelar!</a>
-              <span>Zona Castelar Norte</span>
-              <p>
-                Un perro con collar fue visto merodeando por la calle Arias en
-                Castelar. <br />
-                Está en buen estado esperando a su dueña para reunirse con
-                ansias.
-              </p>
-              <a href="#" class="btn">Más Info</a>
-            </div>
-          </div>
-
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img
-                src="/static/images/companionship-in-nature-stockcake.jpg"
-                alt=""
-              />
-            </div>
-            <div class="content">
-              <a href="#" class="title">Fiona fue encontrada</a>
-              <span>Zona Morón</span>
-              <p>
-                Fiona, la perrita que fue reportada como perdida hace una
-                semana, se reencontró con su familia. ¡Gracias a todos los que
-                ayudaron!
-              </p>
-              <a href="#" class="btn">Más Info</a>
-            </div>
-          </div>
-
-          <div class="swiper-slide box">
-            <div class="imagen">
-              <img
-                src="/static/images/elderly-embraces-cat-stockcake.jpg"
-                alt=""
-              />
-            </div>
-            <div class="content">
-              <a href="#" class="title">Gato perdido en Villa Udaondo</a>
-              <span>Zona Villa Udaondo</span>
-              <p>
-                Se vio un gato gris a rayas en la zona de Villa Udaondo. Si
-                alguien tiene información de su nuevo paradero informar, por
-                favor.
-              </p>
-              <a href="#" class="btn">Más Info</a>
-            </div>
-          </div>
-
-          <!-- Agregamos los controles de Swiper -->
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </div>
-    </section>
-
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-    <section class="review" id="review">
-        <h1 class="heading">Logros del <span>Mes</span></h1>
-      
-        <div class="box-container">
-          <div class="box">
-            <img src="/static/images/quote-img.png" alt="Cita" class="quote" />
-            <p>
-              “Colaborador Estrella del Mes”<br />
-              Logro obtenido por reunir 15 encuentros de mascotas y sus dueños.
-            </p>
-            <img src="/static/images/pic-1.jpg" class="user" alt="Juanchi" />
-<<<<<<< HEAD
-=======
-========
     </div>
+  </header>
 
-</section>
+  <section class="home cover" id="home">
+    <!-- imagen perro y gato -->
+    <img src="/static/images/bottom_wave.png" class="wave" alt="" />
+  </section>
 
-<!-- review section starts  -->
+  <!-- home section ends -->
 
-<section class="review" id="review">
+  <!-- about section starts  -->
 
-    <h1 class="heading"> Logros del <span>Mes</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="/static/images/quote-img.png" alt="" class="quote">
-            <p>“Colaborador Estrella del Mes”<br> Logro obtenido por reunir 15 encuentros de mascotas y sus dueños</p>
-            <img src="/static/images/pic-1.jpg" class="user" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-            <h3>Juanchi</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-          </div>
-      
-          <div class="box">
-            <img src="/static/images/quote-img.png" alt="Cita" class="quote" />
-            <p>
-              “Estrellas de rescate”<br />
-              Felicidades, has logrado el encuentro de 7 mascotas con sus dueños.
-            </p>
-            <img src="/static/images/pic-2.jpg" class="user" alt="Sol" />
-<<<<<<< HEAD
-=======
-========
-        </div>
-
-        <div class="box">
-            <img src="/static/images/quote-img.png" alt="" class="quote">
-            <p> “Estrellas de rescate”<br> Felicidades, has logrado el encuentro de 7 mascotas con sus dueños.</p>
-            <img src="/static/images/pic-2.jpg" class="user" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-            <h3>Sol</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-              <i class="far fa-star"></i>
-            </div>
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-          </div>
-      
-          <div class="box">
-            <img src="/static/images/quote-img.png" alt="Cita" class="quote" />
-            <p>
-              ¡Felices 4 años Chocolate!<br />
-              Hallando Huellas te desea un feliz cumpleaños mascotero.
-            </p>
-            <img src="/static/images/pic-3.jpg" class="user" alt="Chocolate" />
-<<<<<<< HEAD
-=======
-========
-        </div>
-        
-        <div class="box">
-            <img src="/static/images/quote-img.png" alt="" class="quote">
-            <p>¡Felices 4 años Chocolate! <br> Hallando Huellas te desea un feliz cumpleaños mascotero. </p>
-            <img src="/static/images/pic-3.jpg" class="user" alt="">
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-            <h3>Chocolate</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-    <!-- Sección redes sociales -->
-    <section id="redes-sociales" class="bg-light py-5">
-        <img src="/static/images/top_wave.png" alt="" class="wave" />
-      <div class="container">
-        <h2 class="text-black text-center">
-          Síguenos en nuestras redes sociales
-        </h2>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61564835292927">
-            <img src="/static/images/facebook.png" alt="Facebook" class="icon" />
-          </a>
-          <a
-            href="https://www.instagram.com/hallando_huellas?igsh=NTZ1NXdhZ2FoNXg3"
-          >
-            <img src="/static/images/instagram.png" alt="Instagram" class="icon" />
-          </a>
-          <a href="https://x.com/HallandoH">
-            <img src="/static/images/twitter.png" alt="Twitter" class="icon" />
-          </a>
-<<<<<<< HEAD
-=======
-========
-    </div>
-
-</section>
-
-<!-- review section ends -->
-
-<!-- contact section starts  -->
-
-<!-- <section class="contact" id="contact">
-
-    <h1 class="heading"> <span>Contactanos</span> acá </h1>
+  <section class="about" id="about">
+    <h1 class="heading"><span>Sobre</span> Nosotros</h1>
 
     <div class="row">
+      <div class="image">
 
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1629452077891!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        <img src="/static/images/Group.png" alt="Imagen sobre nosotros" />
 
-        <form action="">
-            <h3>¿Tenés alguna otra duda?</h3>
-            <div class="inputBox">
-                <span class="fas fa-user"></span>
-                <input type="text" placeholder="Nombre">
-            </div>
-            <div class="inputBox">
-                <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="E-mail">
-            </div>
-            <div class="inputBox">
-                <span class="fas fa-phone"></span>
-                <input type="number" placeholder="Número">
-            </div>
-            <input type="submit" value="Enviar" class="btn">
-        </form>
+      </div>
 
+      <div class="content">
+        <h3>¿Qué es Hallando Huellas?</h3>
+        <p>
+          Hallando Huellas es una aplicación web diseñada para facilitar la
+          reunificación de mascotas perdidas con sus dueños. Utiliza
+          tecnología de geolocalización y códigos QR personalizados que se
+          colocan en el collar de la mascota. Cuando alguien encuentra una
+          mascota perdida, puede escanear el código QR, accediendo a la
+          información de contacto del dueño y la ubicación donde fue escaneado
+          el código, lo que permite una recuperación más rápida y segura.
+          Además de la tecnología, la plataforma fomenta una comunidad de
+          apoyo mutuo para asegurar que las mascotas vuelvan a casa.
+        </p>
+        <a href="#" class="btn">Saber más</a>
+      </div>
     </div>
+  </section>
 
-</section> -->
+  <!-- about section ends -->
 
-<!-- contact section ends -->
-
-<!-- noticias section starts  -->
-
-<section class="noticias" id="noticias">
-
-    <h1 class="heading"> Nuestras <span>noticias</span> </h1>
+  <section class="faq" id="faq">
+    <h1 class="heading"><span>Preguntas</span> Frecuentes</h1>
 
     <div class="box-container">
+      <div class="box">
 
-        <div class="box">
-            <div class="image">
-                <img src="/static/images/perro_rescatado.png" alt="">
-            </div>
-            <div class="content">
-                <a href="#" class="title">ATENCIÓN ZONA ITUZAINGO PARQUE LELOIR </a>
-                <span>calle udaondo 1695 Predio INTA </span>
-                <p>Apareció recién un cachorro macho de 1 año aproximadamente lo esta reteniendo la guardia policial.</p>
-                <a href="#" class="btn">Más Info</a>
-            </div>
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
+        <div class="image">
+          <img src="/static/images/gato_qr.png" alt="Imagen de gato" />
+        </div>
+        <div class="content">
+          <h3>¿Cómo puedo registrar mi mascota?</h3>
+          <p>
+            Para registrar a tu mascota, simplemente ingresa a la sección de
+            registro y sigue los pasos indicados.
+          </p>
+          <a href="/pet/mascotas" class="btn">Registrar mascota</a>
         </div>
       </div>
-    </section>
 
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
-    <!-- footer section starts  -->
+      <div class="box">
+        <div class="image">
+          <img src="/static/images/74342723-88e8-4792-8e5c-2fe94fca9456.png" alt="Imagen de contacto" />
+        </div>
+        <div class="content">
+          <h3>Encontré una mascota, ¿cómo contacto a su dueño?</h3>
+          <p>
+            Si encuentras una mascota perdida, escanea el código QR en su
+            collar y se te mostrará la información de contacto del dueño.
+          </p>
+          <a href="#" class="btn">Contactar dueño</a>
+        </div>
+      </div>
 
-    <section class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h3 style="color: black;">Ituzaingó</h3>
-            <p style="color: black;">
-              <i class="fas fa-map-marker-alt"></i>Buenos Aires - Argentina
-            </p>
-            <p style="color: black;">
-              <i class="fas fa-phone"></i> Tel: 1167008959 | hallandohuellas@gmail.com
-            </p>
+      <div class="box">
+        <div class="image">
+          <img src="/static/images/perros_con_qr.png" alt="Imagen de perros con QR" />
+        </div>
+        <div class="content">
+          <h3>¿Cuáles son los puntos de encuentro?</h3>
+          <p>
+            Los puntos de encuentro recomendados son áreas públicas como
+            parques, plazas y lugares bien iluminados. Te recomendamos
+            coordinar con el dueño de la mascota.
+          </p>
+          <a href="#" class="btn">Puntos de encuentro</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="/static/images/perro-gato-miran-es-gato_862330-11431.jpg" alt="Imagen de perros con QR" />
+        </div>
+        <div class="content">
+          <h3>¿Cómo coordino un encuentro para devolver la mascota?</h3>
+          <p>
+            Luego de escanear el código QR de la mascota, podrás elegir la
+            opción para coordinar un encuentro con el dueño. Podrás ingresar
+            un lugar y hora de encuentro para devolver a la mascota.
+          </p>
+          <a href="#" class="btn">Más informacion</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="/static/images/kitten-plays-yarn-stockcake.jpg" alt="Imagen de perros con QR" />
+        </div>
+        <div class="content">
+          <h3>¿Cómo funciona el sistema de código QR para mascotas?</h3>
+          <p>
+            Cada mascota registrada recibe un código QR único que puedes
+            colocar en su collar. Si alguien encuentra a tu mascota, puede
+            escanear el código con su teléfono y acceder a tus datos de
+            contacto para devolvértela.
+          </p>
+          <a href="#" class="btn">Más informacion</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="/static/images/aspect-ratio_default_0.jpg" alt="Imagen de perros con QR" />
+        </div>
+        <div class="content">
+          <h3>¿Quién puede ver la información de contacto de mi mascota?</h3>
+          <p>
+            Solo las personas que encuentren a tu mascota perdida y escaneen
+            directamente su código QR podrán ver tu información de contacto y
+            elegir el punto de encuentro. No compartimos tus datos con
+            terceros.
+          </p>
+          <a href="#" class="btn">Más informacion</a>
+        </div>
+  </section>
+
+  <section class="noticias" id="noticias">
+    <h1 class="heading">Nuestras <span>noticias</span></h1>
+
+    <!-- Swiper Container -->
+    <div class="swiper-container">
+      <!-- Swiper Wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide box">
+          <div class="imagen">
+            <img src="/static/images/perro_rescatado.png" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">ATENCIÓN ZONA ITUZAINGO PARQUE LELOIR</a>
+            <span>Calle Udaondo 1695 Predio INTA</span>
             <p>
-<<<<<<< HEAD
-=======
-========
-        <div class="box">
-            <div class="image">
-                <img src="/static/images/perro_en_refugio.png" alt="">
-            </div>
-            <div class="content">
-                <a href="#" class="title">Cornelio se encuentra en un Refugio Amigo</a>
-                <span>Huellitas Perdidas</span>
-                <p>@aninomo_33 llevó a Cornelio al Refugio Huellitas Perdidas</p>
-                <a href="#" class="btn">Más Info</a>
-            </div>
+              Apareció recién un cachorro macho de 1 año aproximadamente.
+              <br />
+              La dueña recibió un mensaje para coordinar su encuentro.
+            </p>
+            <a href="#" class="btn">Más Info</a>
+          </div>
         </div>
 
-        <div class="box">
-            <div class="image">
-                <img src="/static/images/gatitos_encontrados.jpg" alt="">
-            </div>
-            <div class="content">
-                <a href="#" class="title">Cleo y Nina están en casa</a>
-                <span>Reencuentro</span>
-                <p>Cleo y Nina regresaron a casa con su dueño luego de tres días extraviadas</p>
-                <a href="#" class="btn">Más Info</a>
-            </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide box">
+          <div class="imagen">
+            <img src="/static/images/perro_en_refugio.png" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">Coco se encontró cerca de la plaza de Ituzaingó</a>
+            <span>Zona de Ituzaingó Sur</span>
+            <p>
+              @aninomo_33 llevó a Coco al punto de encuentro coordinado con su
+              dueño. <br />
+              Pronto regresara a su casa con el dueño.
+            </p>
+            <a href="#" class="btn">Más Info</a>
+          </div>
         </div>
->>>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25:templates/index.html
->>>>>>> b2666a97e8d3db46af6399e7b6e1414ff9efbc25
 
-      <p style="color: black;">&copy; 2024 Hallando Huellas. Todos los derechos reservados.</p>
-    </section>
+        <!-- Slide 3 -->
+        <div class="swiper-slide box">
+          <div class="imagen">
+            <img src="/static/images/gatitos_encontrados.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">Cleo y Nina están en casa</a>
+            <span>Reencuentro en Ituzaingó</span>
+            <p>
+              Cleo y Nina regresaron a casa con su dueño luego de tres días
+              extraviadas <br />
+              ¡Gracias a todos los que ayudaron!
+            </p>
+            <a href="#" class="btn">Más Info</a>
+          </div>
+        </div>
 
-    <!-- footer section ends -->
+        <!-- Slide 4 -->
+        <div class="swiper-slide box">
+          <div class="imagen">
+            <img src="/static/images/woman-pet.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">¡Perro encontrado en Castelar!</a>
+            <span>Zona Castelar Norte</span>
+            <p>
+              Un perro con collar fue visto merodeando por la calle Arias en
+              Castelar. <br />
+              Está en buen estado esperando a su dueña para reunirse con
+              ansias.
+            </p>
+            <a href="#" class="btn">Más Info</a>
+          </div>
+        </div>
 
-    <!-- custom js file link  -->
-    <script src="js/script.js"></script>
-    <!-- Script para Swiper.js -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!-- Slide 5 -->
+        <div class="swiper-slide box">
+          <div class="imagen">
+            <img src="/static/images/companionship-in-nature-stockcake.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">Fiona fue encontrada</a>
+            <span>Zona Morón</span>
+            <p>
+              Fiona, la perrita que fue reportada como perdida hace una
+              semana, se reencontró con su familia. ¡Gracias a todos los que
+              ayudaron!
+            </p>
+            <a href="#" class="btn">Más Info</a>
+          </div>
+        </div>
 
-    <script>
-      var swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-        },
-      });
-    </script>
-  </body>
+        <!-- Slide 6 -->
+        <div class="swiper-slide box">
+          <div class="imagen">
+            <img src="/static/images/elderly-embraces-cat-stockcake.jpg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">Gato perdido en Villa Udaondo</a>
+            <span>Zona Villa Udaondo</span>
+            <p>
+              Se vio un gato gris a rayas en la zona de Villa Udaondo. Si
+              alguien tiene información de su nuevo paradero informar, por
+              favor.
+            </p>
+            <a href="#" class="btn">Más Info</a>
+          </div>
+        </div>
+        <!-- Agregamos los controles de Swiper -->
+
+
+
+      </div>
+
+      <div class="swiper-pagination">
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sección redes sociales -->
+  <section id="redes-sociales" class="bg-light py-5">
+    <img src="/static/images/top_wave.png" alt="" class="wave" />
+    <div class="container">
+      <h2 class="text-black text-center">
+        Síguenos en nuestras redes sociales
+      </h2>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61564835292927">
+          <img src="/static/images/facebook.png" alt="Facebook" class="icon" />
+        </a>
+        <a href="https://www.instagram.com/hallando_huellas?igsh=NTZ1NXdhZ2FoNXg3">
+          <img src="/static/images/instagram.png" alt="Instagram" class="icon" />
+        </a>
+        <a href="https://x.com/HallandoH">
+          <img src="/static/images/twitter.png" alt="Twitter" class="icon" />
+        </a>
+
+      </div>
+
+  </section>
+  <!-- footer section starts  -->
+
+  <section class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h3 style="color: black;">Ituzaingó</h3>
+          <p style="color: black;">
+            <i class="fas fa-map-marker-alt"></i>Buenos Aires - Argentina
+          </p>
+          <p style="color: black;">
+            <i class="fas fa-phone"></i> Tel: 1167008959 | hallandohuellas@gmail.com
+          </p>
+          <p>
+
+
+          <p style="color: black;">&copy; 2024 Hallando Huellas. Todos los derechos reservados.</p>
+  </section>
+
+  <!-- footer section ends -->
+
+  <!-- custom js file link  -->
+  <script src="js/script.js"></script>
+  <!-- Script para Swiper.js -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+
+    var swiper = new Swiper('.swiper-container', {
+      loop: true, // Para que el carrusel sea infinito
+      autoplay: {
+        delay: 2000, // Ajusta el tiempo entre cada desplazamiento
+        disableOnInteraction: false, // Mantén el autoplay incluso cuando interactúes
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 2, // Puedes ajustar cuántas tarjetas se muestran a la vez
+      spaceBetween: 50, // Espacio entre las tarjetas
+    });
+
+
+  </script>
+</body>
+
 </html>
