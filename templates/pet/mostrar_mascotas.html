@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Mascotas</title>
+    <title>Mis Mascotas</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mascotas.css') }}">
 </head>
 
@@ -24,7 +24,7 @@
 
     <section class="main-section">
         <div class="container">
-            <h1>Lista de Mascotas Registradas</h1>
+            <h1>Mis Mascotas</h1>
             <div class="mascota-cards">
                 {% if mascotas %}
                     {% for mascota in mascotas %}
