@@ -16,7 +16,7 @@
                 <ul class="nav-list">
                     <li><a href="{{ url_for('home') }}">Inicio</a></li>
                     <li><a href="#">Mi perfil</a></li>
-                    <li><a href="{{ url_for('mostrar_mascotas') }}">Mostrar Mascotas</a></li>
+                    <li><a href="{{ url_for('mostrar_mascotas') }}">Mis Mascotas</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,13 +53,13 @@
                 <label for="vacunado">¿Está vacunado?</label>
                 <input type="checkbox" id="vacunado" name="vacunado" {% if mascota.vacunado %}checked{% endif %}>
 
-                <label for="medicamento">Medicamento:</label>
+                <label for="medicamento">Medicamentos:</label>
                 <input type="text" id="medicamento" name="medicamento" value="{{ mascota.medicamento }}">
 
                 <label for="castrado">¿Está castrado?</label>
                 <input type="checkbox" id="castrado" name="castrado" {% if mascota.castrado %}checked{% endif %}>
 
-                <button type="submit">Guardar Cambios</button>
+                <button type="submit">Guardar cambios</button>
             </form>
 
             <a href="{{ url_for('mostrar_mascotas') }}" class="cancel-link">Cancelar</a>

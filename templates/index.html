@@ -40,7 +40,7 @@
             <ul class="dropdown">
               <li><a href="#">Ver perfil</a></li>
               <li>
-                <a href="{{ url_for('mostrar_mascotas') }}">Mi mascota</a>
+                <a href="{{ url_for('mostrar_mascotas') }}">Mis Mascotas</a>
               </li>
               <li><a href="#">Administrar cuenta</a></li>
               <li><a href="#">Cerrar sesión</a></li>
@@ -76,14 +76,14 @@
 
       <div class="content">
         <h3>¿Qué es Hallando Huellas?</h3>
-        <p>
+        <p> <!--PODRÍA CAMBIARSE EL TAMAÑO DE LA LETRA YA QUE EN WEB SE VE MUY CHICO
+          Y EN DISTINTOS TAMAÑOS DE CELULAR SE VEN MUY GRANDES-->
           Hallando Huellas es una aplicación web diseñada para facilitar la
           reunificación de mascotas perdidas con sus dueños. Utiliza
-          tecnología de geolocalización y códigos QR personalizados que se
-          colocan en el collar de la mascota. Cuando alguien encuentra una
-          mascota perdida, puede escanear el código QR, accediendo a la
-          información de contacto del dueño y la ubicación donde fue escaneado
-          el código, lo que permite una recuperación más rápida y segura.
+          tecnología de geolocalización y códigos QR personalizados. Al encontrar a tu
+          mascota perdida, podrán acceder a la
+          información de ella y contactarse contigo, pudiendo darte la ubicación de tu amigo.
+          Queremos que el reencuentro con tu mascota sea más rápido y seguro que nunca.
           Además de la tecnología, la plataforma fomenta una comunidad de
           apoyo mutuo para asegurar que las mascotas vuelvan a casa.
         </p>
@@ -106,8 +106,8 @@
         <div class="content">
           <h3>¿Cómo puedo registrar mi mascota?</h3>
           <p>
-            Para registrar a tu mascota, simplemente ingresa a la sección de
-            registro y sigue los pasos indicados.
+            Para registrar a tu mascota, regístrate y ve al apartado de
+            "Mis mascotas" y sigue los pasos indicados.
           </p>
           <a href="/pet/mascotas" class="btn">Registrar mascota</a>
         </div>
@@ -121,9 +121,9 @@
           <h3>Encontré una mascota, ¿cómo contacto a su dueño?</h3>
           <p>
             Si encuentras una mascota perdida, escanea el código QR en su
-            collar y se te mostrará la información de contacto del dueño.
+            collar y podrás ver la información de contacto del dueño.
           </p>
-          <a href="#" class="btn">Contactar dueño</a>
+          <a href="#" class="btn">Contactar dueño</a> <!--ESTE BOTÓN LO CAMBIARÍA, SOLO PUEDEN CONTACTAR AL DUEÑO AL ESCANEAR UN QR ME PARECE-->
         </div>
       </div>
 
@@ -150,10 +150,10 @@
           <h3>¿Cómo coordino un encuentro para devolver la mascota?</h3>
           <p>
             Luego de escanear el código QR de la mascota, podrás elegir la
-            opción para coordinar un encuentro con el dueño. Podrás ingresar
-            un lugar y hora de encuentro para devolver a la mascota.
+            opción para coordinar un encuentro con el dueño. Especifica un lugar 
+            y una hora para coordinar la devolución de la mascota.
           </p>
-          <a href="#" class="btn">Más informacion</a>
+          <a href="#" class="btn">Más información</a>
         </div>
       </div>
 
@@ -169,7 +169,7 @@
             escanear el código con su teléfono y acceder a tus datos de
             contacto para devolvértela.
           </p>
-          <a href="#" class="btn">Más informacion</a>
+          <a href="#" class="btn">Más información</a>
         </div>
       </div>
 
@@ -185,7 +185,7 @@
             elegir el punto de encuentro. No compartimos tus datos con
             terceros.
           </p>
-          <a href="#" class="btn">Más informacion</a>
+          <a href="#" class="btn">Más información</a>
         </div>
   </section>
 
@@ -193,7 +193,7 @@
     <h1 class="heading">Nuestras <span>noticias</span></h1>
 
     <!-- Swiper Container -->
-    <div class="swiper-container">
+    <div class="swiper-container"> <!--SE PODRÁ PONER PARA QUE PASEN UN POQUITO MÁS LENTO? TIPO 2 SEGUNDOS MÁS APROX. NO SÉ COMO FUNCIONE-->
       <!-- Swiper Wrapper -->
       <div class="swiper-wrapper">
         <!-- Slide 1 -->
@@ -224,7 +224,7 @@
             <p>
               @aninomo_33 llevó a Coco al punto de encuentro coordinado con su
               dueño. <br />
-              Pronto regresara a su casa con el dueño.
+              Pronto regresará a su casa con el dueño.
             </p>
             <a href="#" class="btn">Más Info</a>
           </div>
@@ -291,7 +291,7 @@
             <a href="#" class="title">Gato perdido en Villa Udaondo</a>
             <span>Zona Villa Udaondo</span>
             <p>
-              Se vio un gato gris a rayas en la zona de Villa Udaondo. Si
+              Se vió un gato gris a rayas en la zona de Villa Udaondo. Si
               alguien tiene información de su nuevo paradero informar, por
               favor.
             </p>

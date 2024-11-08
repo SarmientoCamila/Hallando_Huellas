@@ -19,7 +19,7 @@
           <ul class="nav-list">
             <li><a href="{{ url_for('home') }}">Inicio</a></li>
             <li><a href="#">Mi perfil</a></li>
-            <li><a href="{{ url_for('mostrar_mascotas') }}">Mostrar Mascotas</a></li>
+            <li><a href="{{ url_for('mostrar_mascotas') }}">Mis Mascotas</a></li>
           </ul>
         </nav>
       </div>
@@ -33,7 +33,7 @@
           {% if error %}
           <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Error</h4>
-            <p>El formulario no se ha enviado correctamente.</p>
+            <p>La mascota no se pudo registrar.</p>
             <hr />
             <p class="mb-0">{{ error }}</p>
           </div>
@@ -56,7 +56,7 @@
             <label for="color">Color:</label>
             <input type="text" id="color" name="color" />
 
-            <label for="anios_mascota">Edad (años):</label>
+            <label for="anios_mascota">Edad:</label>
             <input type="number" id="anios_mascota" name="anios_mascota" />
 
             <label for="caracteristicas">Características:</label>
@@ -68,7 +68,7 @@
             <label for="vacunado">¿Está vacunado?</label>
             <input type="checkbox" id="vacunado" name="vacunado" />
 
-            <label for="medicamento">Medicamento:</label>
+            <label for="medicamento">Medicamentos:</label>
             <input type="text" id="medicamento" name="medicamento" />
 
             <label for="castrado">¿Está castrado?</label>
@@ -77,7 +77,7 @@
             <label for="foto_mascota">Foto de la mascota:</label>
             <input type="file" id="foto_mascota" name="foto_mascota" accept="image/*" />
 
-            <button type="submit">Registrar Mascota</button>
+            <button type="submit">Registrar mascota</button>
           </form>
         </div>
         <div class="image-container">
